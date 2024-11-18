@@ -4,24 +4,26 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
-
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
+import Image1 from "../../src/assets/images/theExperienceBarberShopAndSalon1.jpg";
+import Image2 from "../../src/assets/images/theExperienceBarberShopAndSalon2.jpg";
+import Image3 from "../../src/assets/images/theExperienceBarberShopAndSalon3.jpg";
 
 const slides = [
   {
     title: "SAVE TIME AND SKIP THE LINE",
     subtitle: "BOOK YOUR EXPERIENCE NOW",
-    image: "/placeholder.svg?height=1080&width=1920",
+    image: Image1,
   },
   {
     title: "PREMIUM GROOMING SERVICES",
     subtitle: "EXPERIENCE THE DIFFERENCE",
-    image: "/placeholder.svg?height=1080&width=1920",
+    image: Image2,
   },
   {
     title: "SKILLED MASTER BARBERS",
     subtitle: "CRAFTING YOUR PERFECT STYLE",
-    image: "/placeholder.svg?height=1080&width=1920",
+    image: Image3,
   },
 ];
 

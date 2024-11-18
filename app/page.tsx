@@ -1,5 +1,11 @@
-import Hero from "@/components/home/Hero";
+import Hero from "../components/home/Hero";
 
-export const page = () => {
-  return <Hero />;
+const Page = () => {
+  return (
+    <>
+      <Hero />
+    </>
+  );
 };
+
+export default Page;
