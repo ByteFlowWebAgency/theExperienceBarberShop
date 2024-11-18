@@ -5,23 +5,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
 
+import barberImg1 from "@/public/barber-img.webp";
+import barberImg2 from "@/public/barber-img2.jpg";
+import barberImg3 from "@/public/barber-img3.jpg";
+
 import { Button } from "@/components/ui/button";
 
 const slides = [
   {
     title: "SAVE TIME AND SKIP THE LINE",
     subtitle: "BOOK YOUR EXPERIENCE NOW",
-    image: "/placeholder.svg?height=1080&width=1920",
+    image: barberImg1,
   },
   {
     title: "PREMIUM GROOMING SERVICES",
     subtitle: "EXPERIENCE THE DIFFERENCE",
-    image: "/placeholder.svg?height=1080&width=1920",
+    image: barberImg2,
   },
   {
     title: "SKILLED MASTER BARBERS",
     subtitle: "CRAFTING YOUR PERFECT STYLE",
-    image: "/placeholder.svg?height=1080&width=1920",
+    image: barberImg3,
   },
 ];
 
