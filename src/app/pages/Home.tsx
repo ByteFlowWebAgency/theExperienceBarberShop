@@ -4,10 +4,10 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
-import { Button } from "../ui/button";
-import Image1 from "../../src/assets/images/theExperienceBarberShopAndSalon1.jpg";
-import Image2 from "../../src/assets/images/theExperienceBarberShopAndSalon2.jpg";
-import Image3 from "../../src/assets/images/theExperienceBarberShopAndSalon3.jpg";
+import { Button } from "../../components/button";
+import Image1 from "../../../public/images/theExperienceBarberShopAndSalon1.jpg";
+import Image2 from "../../../public/images/theExperienceBarberShopAndSalon2.jpg";
+import Image3 from "../../../public/images/theExperienceBarberShopAndSalon3.jpg";
 
 const slides = [
   {

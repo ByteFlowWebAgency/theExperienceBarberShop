@@ -1,6 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "../../components/card";
 import Image from "next/image";
-import barberImage from "@/public/assets/images/theExperienceBarberShopAndSalon1.jpg";
+import Image1 from "../../../public/images/theExperienceBarberShopAndSalon1.jpg";
 
 export default function About() {
   return (
@@ -23,7 +23,7 @@ export default function About() {
           <div className="relative">
             <div className="absolute -bottom-6 -left-4 w-full h-full border-4 border-blue-600" />
             <Image
-              src={barberImage}
+              src={Image1}
               alt="The Experience Barber"
               width={0}
               height={0}
