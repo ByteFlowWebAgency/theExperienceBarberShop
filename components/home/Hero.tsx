@@ -4,28 +4,26 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
-
-import barberImg1 from "@/public/barber-img.webp";
-import barberImg2 from "@/public/barber-img2.jpg";
-import barberImg3 from "@/public/barber-img3.jpg";
-
-import { Button } from "@/components/ui/button";
+import { Button } from "../ui/button";
+import Image1 from "../../src/assets/images/theExperienceBarberShopAndSalon1.jpg";
+import Image2 from "../../src/assets/images/theExperienceBarberShopAndSalon2.jpg";
+import Image3 from "../../src/assets/images/theExperienceBarberShopAndSalon3.jpg";
 
 const slides = [
   {
     title: "SAVE TIME AND SKIP THE LINE",
     subtitle: "BOOK YOUR EXPERIENCE NOW",
-    image: barberImg1,
+    image: Image1,
   },
   {
     title: "PREMIUM GROOMING SERVICES",
     subtitle: "EXPERIENCE THE DIFFERENCE",
-    image: barberImg2,
+    image: Image2,
   },
   {
     title: "SKILLED MASTER BARBERS",
     subtitle: "CRAFTING YOUR PERFECT STYLE",
-    image: barberImg3,
+    image: Image3,
   },
 ];
 
@@ -51,24 +49,6 @@ export default function Hero() {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
-  };
-
-  const nextSlide = () => {
-    stopSlideshow();
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-    startSlideshow();
-  };
-
-  const prevSlide = () => {
-    stopSlideshow();
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    startSlideshow();
-  };
-
-  const goToSlide = (index: number) => {
-    stopSlideshow();
-    setCurrentSlide(index);
-    startSlideshow();
   };
 
   return (
@@ -205,6 +185,22 @@ export default function Hero() {
 
       {/* Hero Carousel */}
       <div className="relative h-screen w-full overflow-hidden">
+        {/* Overlay with Text and Button */}
+        <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/50">
+          <h1 className="mb-8 text-center text-4xl font-bold text-white md:text-6xl lg:text-10xl">
+            SAVE TIME AND SKIP THE LINE
+          </h1>
+          <Link href="/book">
+            <Button
+              size="lg"
+              className="bg-blue-600 px-8 py-6 text-lg font-semibold text-white hover:bg-blue-700 md:text-xl"
+            >
+              BOOK YOUR EXPERIENCE NOW
+            </Button>
+          </Link>
+        </div>
+
+        {/* Carousel Slides */}
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -219,52 +215,8 @@ export default function Hero() {
               className="object-cover"
               priority={index === 0}
             />
-            <div className="absolute inset-0 bg-black/50" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center">
-              <h1 className="animate-fade-up text-4xl font-bold text-white opacity-0 md:text-6xl lg:text-7xl [animation-delay:200ms] [animation-fill-mode:forwards]">
-                {slide.title}
-              </h1>
-              <Button
-                size="lg"
-                className="animate-fade-up bg-blue-600 text-lg text-white opacity-0 hover:bg-blue-700 md:text-xl [animation-delay:400ms] [animation-fill-mode:forwards]"
-              >
-                {slide.subtitle}
-              </Button>
-            </div>
           </div>
         ))}
-
-        {/* Carousel Controls */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/75"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/75"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="h-6 w-6" />
-        </button>
-
-        {/* Slide Indicators */}
-        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`h-2 w-2 rounded-full transition-all ${
-                currentSlide === index
-                  ? "w-4 bg-white"
-                  : "bg-white/50 hover:bg-white/75"
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
       </div>
     </main>
   );
