@@ -4,10 +4,10 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
-import { Button } from "../ui/button";
-import Image1 from "../../src/assets/images/theExperienceBarberShopAndSalon1.jpg";
-import Image2 from "../../src/assets/images/theExperienceBarberShopAndSalon2.jpg";
-import Image3 from "../../src/assets/images/theExperienceBarberShopAndSalon3.jpg";
+import { Button } from "../components/button";
+import Image1 from "../../public/assets/images/theExperienceBarberShopAndSalon1.jpg";
+import Image2 from "../../public/assets/images/theExperienceBarberShopAndSalon2.jpg";
+import Image3 from "../../public/assets/images/theExperienceBarberShopAndSalon3.jpg";
 
 const slides = [
   {
@@ -27,7 +27,7 @@ const slides = [
   },
 ];
 
-export default function Hero() {
+export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
