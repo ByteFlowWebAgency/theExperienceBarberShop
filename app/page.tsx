@@ -1,4 +1,5 @@
-import Home from "./Home/page";
+import Home from "./home/page";
+
 const Page = () => {
   return (
     <>
