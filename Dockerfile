@@ -8,10 +8,11 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm ci
 
 # Copy project files
 COPY . .
+COPY next.config.js ./next.config.js
 
 # Expose port 3000
 EXPOSE 3000
