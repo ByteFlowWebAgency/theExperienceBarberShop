@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const Footer = () => {
   const [name, setName] = useState("");
@@ -12,7 +13,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Contacts Section */}
         <div className="p-6 bg-white shadow-md rounded-lg">
-          <h1 className="text-2xl font-bold mb-4">CONTACTS</h1>
+          <h1 className="text-2xl font-bold mb-4 border-b-2 border-blue-500 inline-block">
+            CONTACTS
+          </h1>
           <p className="text-gray-600 mb-2">88 E Mill St Akron, OH 44308</p>
           <p className="text-gray-600 mb-2">330-475-2552</p>
           <p className="text-gray-600 mb-2">
@@ -65,14 +68,14 @@ const Footer = () => {
               placeholder="Enter Your Phone Number"
               className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
-            <textarea
+            <Textarea
               id="message"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="How can we help you?"
               className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              rows="4"
-            ></textarea>
+              rows={4}
+            ></Textarea>
             <button
               type="submit"
               className="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:outline-none"
