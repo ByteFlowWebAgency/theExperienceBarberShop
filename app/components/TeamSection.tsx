@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Footer from "../components/Footer";
 import { Menu, X } from "lucide-react";
 import { Button } from "../components/button";
 import DeShawn from "../../public/assets/images/dsc_8034.webp";
@@ -206,6 +207,7 @@ const TeamSection = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 };
