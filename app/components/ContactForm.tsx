@@ -6,7 +6,6 @@ import emailjs from "@emailjs/browser";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -128,7 +127,12 @@ const ContactForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Send Message</Button>
+        <Button
+          type="submit"
+          className="w-full bg-blue-600 text-white text-lg font-semibold py-3 rounded hover:bg-blue-700"
+        >
+          Send Message
+        </Button>
       </form>
     </Form>
   );
