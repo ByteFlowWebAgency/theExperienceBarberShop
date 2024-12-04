@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
         {/* Bookings Section */}
         <div className="p-6 bg-white shadow-md rounded-lg">
           <h1 className="text-2xl font-bold mb-4 border-b-2 border-blue-500 inline-block">
-            QUESTIONS/REACH OUT
+            REACH OUT
           </h1>
           <ContactForm />
           <p className="text-center text-gray-400 mt-4 text-sm">
