@@ -2,7 +2,7 @@ import React from "react";
 import ContactForm from "../components/ContactForm";
 
 // Footer Component
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <div className="bg-gray-100 py-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -29,7 +29,7 @@ const Footer = () => {
         {/* Bookings Section */}
         <div className="p-6 bg-white shadow-md rounded-lg">
           <h1 className="text-2xl font-bold mb-4 border-b-2 border-blue-500 inline-block">
-            BOOKINGS
+            QUESTIONS/REACH OUT
           </h1>
           <ContactForm />
           <p className="text-center text-gray-400 mt-4 text-sm">
