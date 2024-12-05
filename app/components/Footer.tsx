@@ -1,6 +1,8 @@
 import React from "react";
 import ContactForm from "../components/ContactForm";
+import Image from "next/image";
 import IFrameMap from "./IFrameMap";
+import TheExperienceBarberShopAndSalon from "../../public/assets/images/TheExperienceBarberShopAndSalonLogo.png";
 
 // Footer Component
 const Footer: React.FC = () => {
@@ -34,6 +36,14 @@ const Footer: React.FC = () => {
             REACH OUT
           </h1>
           <ContactForm />
+          <Image
+            src={TheExperienceBarberShopAndSalon}
+            alt="The Experience Barbershop and Salon Logo"
+            layout="responsive"
+            width={500}
+            height={100}
+            className="object-contain"
+          />
           <p className="text-center text-gray-400 mt-4 text-sm">
             All rights reserved.
           </p>
