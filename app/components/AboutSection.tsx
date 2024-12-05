@@ -1,10 +1,10 @@
 import { Card, CardContent } from "./card";
 import Image from "next/image";
-import barberImage from "../../public/assets/images/theExperienceBarberShopAndSalon1.jpg";
+import Deshawn from "../../public/assets/images/Deshawn.png";
 
 export default function AboutSection() {
   return (
-    <section className="container mx-auto py-8 sm:py-12 lg:py-16 px-4 ">
+    <section className="container mx-auto py-8 sm:py-12 lg:py-16 px-4">
       {/* Title */}
       <div className="text-center mb-8 sm:mb-12 lg:mb-16">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
@@ -23,7 +23,7 @@ export default function AboutSection() {
           <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px]">
             <div className="absolute -bottom-4 sm:-bottom-6 -left-2 sm:-left-4 w-full h-full border-2 sm:border-4 border-blue-600" />
             <Image
-              src={barberImage}
+              src={Deshawn}
               alt="The Experience Barber"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"

@@ -1,5 +1,6 @@
 import React from "react";
 import ContactForm from "../components/ContactForm";
+import IFrameMap from "./IFrameMap";
 
 // Footer Component
 const Footer: React.FC = () => {
@@ -24,6 +25,7 @@ const Footer: React.FC = () => {
               www.downtownakron.com/go/the-experience-barber-and-beauty-shop
             </a>
           </p>
+          <IFrameMap />
         </div>
 
         {/* Bookings Section */}
