@@ -18,42 +18,44 @@ export default function AboutSection() {
 
       {/* Content */}
       <Card className="border-none shadow-none">
-        <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center p-0">
+        <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center p-0">
           {/* Image Container */}
-          <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px]">
-            <div className="absolute -bottom-4 sm:-bottom-6 -left-2 sm:-left-4 w-full h-full border-2 sm:border-4 border-blue-600" />
+          <div className="relative w-[95%] md:w-[80%] lg:w-[65%] h-[350px] sm:h-[450px] lg:h-[600px] mx-auto">
+            <div className="absolute -bottom-6 -right-4 w-full h-full border-4 border-blue-600 rounded-lg" />
             <Image
               src={Deshawn}
               alt="The Experience Barber"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="relative object-cover"
+              className="relative object-cover rounded-lg"
               priority
             />
           </div>
 
           {/* Text Content */}
-          <div className="space-y-6 sm:space-y-8">
-            <h3 className="text-2xl sm:text-3xl font-bold">
-              The Barber behind it all...
+          <div className="space-y-8 px-2 lg:px-6">
+            <h3 className="text-2xl sm:text-3xl font-bold text-blue-600">
+              Meet the Barber Behind the Experience
             </h3>
 
-            <p className="text-base sm:text-lg text-muted-foreground">
-              The Experience Barber & Beauty Shop provides a relaxing
-              atmosphere, professional service, competitive prices and quality.
+            <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
+              The Experience Barber & Beauty Shop provides a welcoming and
+              relaxing atmosphere with premium services at competitive prices.
+              Whether it's a sharp haircut, a soothing shampoo, or a perfectly
+              styled trim, you’ll leave feeling your absolute best.
             </p>
 
-            <div className="space-y-3 sm:space-y-4">
-              <h4 className="text-xl sm:text-2xl font-bold">Hours:</h4>
-              <div className="space-y-2">
-                <p className="text-base sm:text-lg">
-                  Monday to Saturday:{" "}
-                  <span className="font-semibold">10AM-6PM</span>
-                </p>
-                <p className="text-base sm:text-lg">
-                  Sunday: <span className="font-semibold">CLOSED</span>
-                </p>
-              </div>
+            <div className="p-6 bg-gray-100 rounded-lg shadow-md">
+              <h4 className="text-lg sm:text-xl font-bold mb-3 text-blue-600">
+                Hours of Operation
+              </h4>
+              <p className="text-base sm:text-lg text-gray-700">
+                <span className="font-semibold">Monday to Saturday:</span> 10AM
+                - 6PM
+              </p>
+              <p className="text-base sm:text-lg text-gray-700">
+                <span className="font-semibold">Sunday:</span> CLOSED
+              </p>
             </div>
           </div>
         </CardContent>
