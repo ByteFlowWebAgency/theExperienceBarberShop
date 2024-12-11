@@ -1,5 +1,8 @@
 import React from "react";
 import ContactForm from "../components/ContactForm";
+import Image from "next/image";
+import IFrameMap from "./IFrameMap";
+import TheExperienceBarberShopAndSalon from "../../public/assets/images/TheExperienceBarberShopAndSalonLogo.png";
 
 // Footer Component
 const Footer: React.FC = () => {
@@ -24,14 +27,23 @@ const Footer: React.FC = () => {
               www.downtownakron.com/go/the-experience-barber-and-beauty-shop
             </a>
           </p>
+          <IFrameMap />
         </div>
 
         {/* Bookings Section */}
         <div className="p-6 bg-white shadow-md rounded-lg">
           <h1 className="text-2xl font-bold mb-4 border-b-2 border-blue-500 inline-block">
-            QUESTIONS/REACH OUT
+            REACH OUT
           </h1>
           <ContactForm />
+          <Image
+            src={TheExperienceBarberShopAndSalon}
+            alt="The Experience Barbershop and Salon Logo"
+            layout="responsive"
+            width={500}
+            height={100}
+            className="object-contain"
+          />
           <p className="text-center text-gray-400 mt-4 text-sm">
             All rights reserved.
           </p>

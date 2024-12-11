@@ -1,10 +1,11 @@
+"use client";
+
 import React from "react";
 import { Textarea } from "@/components/ui/textarea";
 import emailjs from "@emailjs/browser";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -65,7 +66,7 @@ const ContactForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-9">
         <FormField
           control={form.control}
           name="name"
@@ -126,7 +127,12 @@ const ContactForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Send Message</Button>
+        <Button
+          type="submit"
+          className="w-full bg-blue-600 text-white text-lg font-semibold py-3 rounded hover:bg-blue-700"
+        >
+          Send Message
+        </Button>
       </form>
     </Form>
   );
