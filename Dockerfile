@@ -1,21 +1,27 @@
-# Base on Node LTS
-FROM node:20-alpine
+# Base Image for Build Stage
+FROM node:20-alpine AS builder
 
-# Set working directory
+# Working Directory
 WORKDIR /app
 
-# Copy package files
+# Copy dependencies
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci
+RUN npm ci 
 
-# Copy project files
-COPY . .
-COPY next.config.js ./next.config.js
+# Copy all files over
+COPY . ./
 
-# Expose port 3000
-EXPOSE 3000
 
-# Start the application
-CMD ["npm", "run", "dev"] 
+# Base image for Runtime Stage
+FROM node:20-alpine AS runtime
+
+# Working Directory
+WORKDIR /app
+
+# Copy only essential files from Builder Stage
+COPY --from=builder /app/package*.json /app/
+
+# Run the project
+CMD ["npm", "run", "dev"]
