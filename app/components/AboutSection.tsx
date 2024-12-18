@@ -41,8 +41,9 @@ export default function AboutSection() {
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
               The Experience Barber & Beauty Shop provides a welcoming and
               relaxing atmosphere with premium services at competitive prices.
-              Whether it's a sharp haircut, a soothing shampoo, or a perfectly
-              styled trim, you’ll leave feeling your absolute best.
+              Whether it&apos;s a sharp haircut, a soothing shampoo, or a
+              perfectly styled trim, you&apos;ll leave feeling your absolute
+              best.
             </p>
 
             <div className="p-6 bg-gray-100 rounded-lg shadow-md">
