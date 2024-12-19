@@ -57,15 +57,15 @@ const ContactForm = () => {
 
     try {
       const response = await emailjs.send(
-        serviceID, // Replace with your EmailJS Service ID
-        templateID, // Replace with your EmailJS Template ID
+        serviceID,
+        templateID,
         {
           name: data.name,
           email: data.email,
           number: data.number,
           message: data.message,
         },
-        publicKey // Replace with your EmailJS Public Key
+        publicKey
       );
       console.log("Email sent successfully: ", response);
       console.log(data);

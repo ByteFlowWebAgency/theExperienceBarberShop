@@ -4,12 +4,10 @@ import Image from "next/image";
 import IFrameMap from "./IFrameMap";
 import TheExperienceBarberShopAndSalon from "../../public/assets/images/TheExperienceBarberShopAndSalonLogo.png";
 
-// Footer Component
 const Footer: React.FC = () => {
   return (
     <div className="bg-gray-100 py-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Contacts Section */}
         <div className="p-6 bg-white shadow-md rounded-lg">
           <h1 className="text-2xl font-bold mb-4 border-b-2 border-blue-500 inline-block">
             CONTACTS
@@ -30,7 +28,6 @@ const Footer: React.FC = () => {
           <IFrameMap />
         </div>
 
-        {/* Bookings Section */}
         <div className="p-6 bg-white shadow-md rounded-lg">
           <h1 className="text-2xl font-bold mb-4 border-b-2 border-blue-500 inline-block">
             REACH OUT
