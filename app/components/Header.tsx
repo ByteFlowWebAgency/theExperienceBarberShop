@@ -57,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({ isTransparent = false }) => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          {["Home", "Team", "Gallery", "Franchise"].map((item) => (
+          {["Home", "Franchise"].map((item) => (
             <Link
               key={item}
               href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
@@ -85,7 +85,7 @@ const Header: React.FC<HeaderProps> = ({ isTransparent = false }) => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="fixed inset-0 bg-black/95 flex flex-col items-center justify-center space-y-6 z-40">
-            {["Home", "Team", "Gallery", "Franchise"].map((item) => (
+            {["Home", "Franchise"].map((item) => (
               <Link
                 key={item}
                 href={item === "Home" ? "/" : `/${item.toLowerCase()}`}

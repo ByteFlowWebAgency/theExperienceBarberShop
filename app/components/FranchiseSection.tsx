@@ -10,17 +10,17 @@ const FranchiseSection = () => {
           </h2>
         </div>
 
-        <p className="text-lg text-gray-600 text-center mb-10">
+        <p className="text-lg text-center mb-10">
           <span className="font-semibold">IDENTIFY | TEACH | LAUNCH</span>
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Identify Section */}
           <div className="bg-white shadow-lg rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4 border-b-4 border-blue-500 inline-block">
+            <h3 className="text-xl font-semibold mb-4 border-b-4 border-blue-500 inline-block">
               Identify Candidates
             </h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-2">
+            <ul className="list-disc list-inside space-y-2">
               <li>Leadership prowess</li>
               <li>Business acumen</li>
               <li>
@@ -36,11 +36,11 @@ const FranchiseSection = () => {
 
           {/* Teach Section */}
           <div className="bg-white shadow-lg rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4 border-b-4 border-blue-500 inline-block">
+            <h3 className="text-xl font-semibold mb-4 border-b-4 border-blue-500 inline-block">
               Teach
             </h3>
-            <p className="text-gray-600 text-sm mb-4">(required)</p>
-            <ul className="list-disc list-inside text-gray-600 space-y-2">
+            <p className="text-sm mb-4">(required)</p>
+            <ul className="list-disc list-inside space-y-2">
               <li>6-week leadership classes</li>
               <li>Financial literacy</li>
               <li>Business cultivation</li>
@@ -55,10 +55,10 @@ const FranchiseSection = () => {
 
           {/* Launch Section */}
           <div className="bg-white shadow-lg rounded-lg p-6">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4 border-b-4 border-blue-500 inline-block">
+            <h3 className="text-xl font-semibold mb-4 border-b-4 border-blue-500 inline-block">
               Launch
             </h3>
-            <ul className="list-disc list-inside text-gray-600 space-y-2">
+            <ul className="list-disc list-inside space-y-2">
               <li>
                 <span className="font-semibold">$25,000</span> investment for
                 equipment rent/utilities for 1 year
