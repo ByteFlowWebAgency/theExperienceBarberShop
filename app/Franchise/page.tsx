@@ -1,9 +1,14 @@
 import React from "react";
+import Footer from "../components/Footer";
+import FranchiseSection from "../components/FranchiseSection";
+import Header from "../components/Header";
 
 const FranchisePage = () => {
   return (
     <>
-      <h1>Frnachise Page</h1>
+      <Header />
+      <FranchiseSection />
+      <Footer />
     </>
   );
 };
