@@ -4,10 +4,12 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "../components/button";
-import classNames from "classnames"; // For conditional styling
+import Image from "next/image";
+import Logo from "../../public/assets/images/TheExperienceBarberShopAndSalonLogo.png";
+import classNames from "classnames";
 
 interface HeaderProps {
-  isTransparent?: boolean; // Prop to toggle transparency
+  isTransparent?: boolean;
 }
 
 const Header: React.FC<HeaderProps> = ({ isTransparent = false }) => {
@@ -21,18 +23,20 @@ const Header: React.FC<HeaderProps> = ({ isTransparent = false }) => {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between">
-        {/* Logo */}
-        <Link
-          href="/"
-          className={classNames(
-            "text-2xl font-bold transition-opacity hover:opacity-80",
-            isTransparent ? "text-white" : "text-[#1748F7]"
-          )}
-        >
-          LOGO
+        <Link href="/" aria-label="Home">
+          <Image
+            src={Logo}
+            alt="The Experience Barber Shop and Salon Logo"
+            width={150}
+            height={25}
+            className={classNames(
+              "transition-opacity hover:opacity-80",
+              isTransparent ? "brightness-150" : ""
+            )}
+            priority
+          />
         </Link>
 
-        {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="z-50 md:hidden"
@@ -55,9 +59,8 @@ const Header: React.FC<HeaderProps> = ({ isTransparent = false }) => {
           )}
         </button>
 
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          {["Home", "Team", "Gallery", "Franchise"].map((item) => (
+          {["Home", "Franchise"].map((item) => (
             <Link
               key={item}
               href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
@@ -82,10 +85,9 @@ const Header: React.FC<HeaderProps> = ({ isTransparent = false }) => {
           </Button>
         </nav>
 
-        {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="fixed inset-0 bg-black/95 flex flex-col items-center justify-center space-y-6 z-40">
-            {["Home", "Team", "Gallery", "Franchise"].map((item) => (
+            {["Home", "Franchise"].map((item) => (
               <Link
                 key={item}
                 href={item === "Home" ? "/" : `/${item.toLowerCase()}`}

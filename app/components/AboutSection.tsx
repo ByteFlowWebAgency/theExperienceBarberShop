@@ -5,7 +5,6 @@ import Deshawn from "../../public/assets/images/Deshawn.png";
 export default function AboutSection() {
   return (
     <section className="container mx-auto py-8 sm:py-12 lg:py-16 px-4">
-      {/* Title */}
       <div className="text-center mb-8 sm:mb-12 lg:mb-16">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">
           ABOUT THE EXPERIENCE BARBER
@@ -16,10 +15,8 @@ export default function AboutSection() {
         <div className="h-1 w-24 sm:w-32 bg-blue-600 mx-auto" />
       </div>
 
-      {/* Content */}
       <Card className="border-none shadow-none">
         <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center p-0">
-          {/* Image Container */}
           <div className="relative w-[95%] md:w-[80%] lg:w-[65%] h-[350px] sm:h-[450px] lg:h-[600px] mx-auto">
             <div className="absolute -bottom-6 -right-4 w-full h-full border-4 border-blue-600 rounded-lg" />
             <Image
@@ -32,7 +29,6 @@ export default function AboutSection() {
             />
           </div>
 
-          {/* Text Content */}
           <div className="space-y-8 px-2 lg:px-6">
             <h3 className="text-2xl sm:text-3xl font-bold text-blue-600">
               Meet the Barber Behind the Experience

@@ -19,9 +19,8 @@ const TeamSection = () => {
     <>
       <main>
         <Header />
-        {/* Team Section */}
+
         <div>
-          {/* OUR TEAM Header */}
           <div className="flex justify-center mt-10">
             <h1 className="text-4xl font-bold text-[#1748F7] uppercase tracking-wide">
               Our Team
@@ -35,7 +34,6 @@ const TeamSection = () => {
                 key={index}
                 className="flex flex-col items-center shadow-lg rounded-lg bg-gradient-to-b from-blue-50 to-white p-3 w-[90%] max-w-[300px] mx-auto"
               >
-                {/* Barber Image */}
                 <div className="w-48 h-64">
                   <Image
                     src={barber.image}
@@ -44,12 +42,10 @@ const TeamSection = () => {
                   />
                 </div>
 
-                {/* Barber Name */}
                 <h2 className="mt-4 text-lg font-bold text-gray-800">
                   {barber.name}
                 </h2>
 
-                {/* Book Now Button */}
                 <button className="mt-4 bg-blue-600 text-white text-sm font-medium px-4 py-2 w-full rounded hover:bg-blue-700 transition-colors">
                   BOOK NOW
                 </button>

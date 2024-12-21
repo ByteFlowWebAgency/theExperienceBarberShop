@@ -48,14 +48,27 @@ const ContactForm = () => {
   });
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
+
+    console.log("Sending email with:");
+    console.log({ serviceID, templateID, publicKey, data });
+
     try {
       const response = await emailjs.send(
-        "your_service_id", // Replace with your EmailJS Service ID
-        "your_template_id", // Replace with your EmailJS Template ID
-        { ...data },
-        "your_public_key" // Replace with your EmailJS Public Key
+        serviceID,
+        templateID,
+        {
+          name: data.name,
+          email: data.email,
+          number: data.number,
+          message: data.message,
+        },
+        publicKey
       );
       console.log("Email sent successfully: ", response);
+      console.log(data);
       alert("Your message has been sent!");
     } catch (error) {
       console.error("Failed to send email: ", error);
