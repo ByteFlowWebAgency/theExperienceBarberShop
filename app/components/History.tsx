@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { Button } from "../components/button";
 
 const History: React.FC<History> = () => {
@@ -20,9 +21,11 @@ const History: React.FC<History> = () => {
         trims and shaving.
       </p>
 
-      <Button className="mt-6 bg-blue-600 text-white px-8 py-4 rounded hover:bg-blue-700 text-lg font-semibold">
-        BOOK YOUR EXPERIENCE NOW
-      </Button>
+      <Link href="https://booksy.com/en-us/65218_lionheart-theexperience_barber-shop_31848_akron#ba_s=sgr_1">
+        <Button className="mt-6 bg-blue-600 text-white px-8 py-4 rounded hover:bg-blue-700 text-lg font-semibold">
+          BOOK YOUR EXPERIENCE NOW
+        </Button>
+      </Link>
     </section>
   );
 };

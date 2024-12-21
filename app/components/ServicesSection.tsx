@@ -1,38 +1,29 @@
 import React from "react";
-import Tools from "../../public/assets/images/tools.png";
+import TheExperienceShop from "../../public/assets/images/theexperienceshop.webp";
 import { Card } from "./card";
 
 const serviceCategories = [
   {
-    title: "Hair cutting",
+    title: "Popular Services",
     services: [
-      { name: "Men", price: "Price 1" },
-      { name: "Women", price: "Price 2" },
-      { name: "Children", price: "Price 3" },
+      { name: "Haircut/Beard not included", price: "$30.00+" },
+      { name: "Male Haircut with beard included", price: "$40.00" },
+      { name: "Kids haircut", price: "$25.00" },
     ],
   },
   {
-    title: "Shampoos",
+    title: "Other Services",
     services: [
-      { name: "Men", price: "Price 1" },
-      { name: "Women", price: "Price 2" },
-      { name: "Children", price: "Price 3" },
-    ],
-  },
-  {
-    title: "Styles",
-    services: [
-      { name: "Men", price: "Price 1" },
-      { name: "Women", price: "Price 2" },
-      { name: "Children", price: "Price 3" },
-    ],
-  },
-  {
-    title: "Trims",
-    services: [
-      { name: "Men", price: "Price 1" },
-      { name: "Women", price: "Price 2" },
-      { name: "Children", price: "Price 3" },
+      { name: "Shave service", price: "$20.00+" },
+      { name: "Eyebrow shaping", price: "$20.00" },
+      { name: "Line up/Head only", price: "$20.00+" },
+      { name: "Beard trim", price: "$20.00" },
+      { name: "Hair color", price: "$35.00" },
+      { name: "Appointment prices", price: "$5.00" },
+      {
+        name: "College cuts",
+        price: "$25.00 (College students with valid ID)",
+      },
     ],
   },
 ];
@@ -42,7 +33,7 @@ export default function Services() {
     <section
       className="relative bg-gray-100 bg-cover bg-center py-16 px-4"
       style={{
-        backgroundImage: `url(${Tools.src})`,
+        backgroundImage: `url(${TheExperienceShop.src})`,
       }}
     >
       {/* Background Overlay */}
