@@ -72,17 +72,19 @@ const Header: React.FC<HeaderProps> = ({ isTransparent = false }) => {
               {item}
             </Link>
           ))}
-          <Button
-            size="lg"
-            className={classNames(
-              "hover:bg-blue-700",
-              isTransparent
-                ? "bg-blue-600 text-white"
-                : "bg-blue-600 text-white"
-            )}
-          >
-            Book
-          </Button>
+          <Link href="https://booksy.com/en-us/65218_lionheart-theexperience_barber-shop_31848_akron#ba_s=sgr_1">
+            <Button
+              size="lg"
+              className={classNames(
+                "hover:bg-blue-700",
+                isTransparent
+                  ? "bg-blue-600 text-white"
+                  : "bg-blue-600 text-white"
+              )}
+            >
+              Book
+            </Button>
+          </Link>
         </nav>
 
         {isMenuOpen && (
@@ -97,13 +99,15 @@ const Header: React.FC<HeaderProps> = ({ isTransparent = false }) => {
                 {item}
               </Link>
             ))}
-            <Button
-              size="lg"
-              className="bg-blue-600 text-white hover:bg-blue-700"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Book
-            </Button>
+            <Link href="https://booksy.com/en-us/65218_lionheart-theexperience_barber-shop_31848_akron#ba_s=sgr_1">
+              <Button
+                size="lg"
+                className="bg-blue-600 text-white hover:bg-blue-700"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Book
+              </Button>
+            </Link>
           </nav>
         )}
       </div>

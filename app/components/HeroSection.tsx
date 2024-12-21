@@ -60,7 +60,7 @@ export default function HeroSection() {
           <h1 className="mb-8 text-center text-4xl font-bold text-white md:text-6xl lg:text-10xl">
             SAVE TIME AND SKIP THE LINE
           </h1>
-          <Link href="/book">
+          <Link href="https://booksy.com/en-us/65218_lionheart-theexperience_barber-shop_31848_akron#ba_s=sgr_1">
             <Button
               size="lg"
               className="bg-blue-600 px-8 py-6 text-lg font-semibold text-white hover:bg-blue-700 md:text-xl"
