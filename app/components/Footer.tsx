@@ -27,23 +27,22 @@ const Footer: React.FC = () => {
             REACH OUT
           </h1>
           <ContactForm />
-          <Image
-            src={TheExperienceBarberShopAndSalon}
-            alt="The Experience Barbershop and Salon Logo"
-            layout="responsive"
-            width={500}
-            height={100}
-            className="object-contain"
-          />
-          <p className="text-center text-gray-400 mt-4 text-sm">
-            All rights reserved.
-          </p>
+          <div className="pl-10">
+            <Image
+              src={TheExperienceBarberShopAndSalon}
+              alt="The Experience Barbershop and Salon Logo"
+              layout="intrinsic"
+              width={500}
+              height={10}
+              className="object-contain"
+            />
+          </div>
         </div>
       </div>
       <footer className="text-center mt-10 text-sm text-gray-500">
         <p>
           Terms & Conditions | Privacy Policy | Copyright © The Experience
-          Barbershop & Salon
+          Barbershop & Salon | All rights reserved.
         </p>
       </footer>
     </div>
