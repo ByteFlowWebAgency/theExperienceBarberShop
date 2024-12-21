@@ -12,18 +12,12 @@ const Footer: React.FC = () => {
           <h1 className="text-2xl font-bold mb-4 border-b-2 border-blue-500 inline-block">
             CONTACTS
           </h1>
-          <p className="text-gray-600 mb-2">88 E Mill St Akron, OH 44308</p>
-          <p className="text-gray-600 mb-2">330-475-2552</p>
           <p className="text-gray-600 mb-2">
-            theexperiencebarbershopandsalon@gmail.com
+            Address: 88 E Mill St Akron, OH 44308
           </p>
-          <p className="text-blue-600 underline">
-            <a
-              href="https://www.downtownakron.com/go/the-experience-barber-and-beauty-shop"
-              className="text-blue-500 underline hover:text-blue-700"
-            >
-              www.downtownakron.com/go/the-experience-barber-and-beauty-shop
-            </a>
+          <p className="text-gray-600 mb-2">Phone Number: 330-475-2552</p>
+          <p className="text-gray-600 mb-2">
+            Email: theexperiencebarbershopandsalon@gmail.com
           </p>
           <IFrameMap />
         </div>
