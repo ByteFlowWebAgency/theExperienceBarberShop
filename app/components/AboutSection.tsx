@@ -47,8 +47,8 @@ export default function AboutSection() {
                 Hours of Operation
               </h4>
               <p className="text-base sm:text-lg text-gray-700">
-                <span className="font-semibold">Monday's:</span> Appointments
-                only
+                <span className="font-semibold">Monday&apos;s:</span>{" "}
+                Appointments only
               </p>
               <p className="text-base sm:text-lg text-gray-700">
                 <span className="font-semibold">Tuesday to Saturday:</span> 10AM
