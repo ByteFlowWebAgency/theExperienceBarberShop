@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Button } from "../components/button";
 
-const History: React.FC<History> = () => {
+const History = () => {
   return (
     <section className="bg-white py-16 px-8 text-center">
       <h2 className="text-4xl font-bold text-black">HISTORY</h2>
