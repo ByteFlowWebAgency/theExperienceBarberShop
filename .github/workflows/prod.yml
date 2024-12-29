@@ -23,7 +23,7 @@ jobs:
             ~/.npm 
             node_modules 
             .next/cache
-          key: ${{ runner.os }}-build-${{ hashFiles('next.config.js', 'app/**/*.tsx', '**/package-lock.json') }}
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             build-${{ runner.os }}-
             ${{ runner.os }}-
