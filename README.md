@@ -8,8 +8,11 @@ A private Next.js, React, and TypeScript application developed by BYTEFLOW for T
 ├── .next/
 ├── app/
 ├── public/
-├── github/
-│   └── actions-runner/
+├── .github/
+│   ├── workflows/
+│   │   └── dev.yaml        # CI/CD pipeline configuration
+│   │   └── prod.yaml       # CI/CD pipeline configuration
+│   └── actions-runner/   # Self-hosted runner configuration
 ├── node_modules/
 ├── .dockerignore
 ├── .eslintignore
@@ -28,6 +31,64 @@ A private Next.js, React, and TypeScript application developed by BYTEFLOW for T
 ├── tailwind.css.ts
 └── tsconfig.json
 ```
+
+## CI/CD Pipeline and GitHub Actions
+
+This project includes automated workflows through GitHub Actions that:
+- Enforce code quality standards through ESLint
+- Verify proper code formatting
+- Run the build process to catch compilation errors
+- Execute test suites
+- Ensure consistent code style
+
+### Self-Hosted Runner Setup
+
+The pipeline requires a self-hosted GitHub Actions runner with these specifications:
+
+#### Hardware Requirements
+- CPU: Minimum 2 cores
+- RAM: Minimum 4GB
+- Storage: At least 50GB free space
+- Network: Stable internet connection with minimum 10Mbps
+
+#### Software Requirements
+- Operating System: Ubuntu 20.04 or newer
+- Node.js 18.x or newer
+- Docker Engine
+- Git
+
+### Runner Installation
+
+1. Create runner directory:
+```bash
+mkdir actions-runner && cd actions-runner
+```
+
+2. Download the latest runner package:
+```bash
+curl -o actions-runner-linux-x64-2.311.0.tar.gz -L https://github.com/actions/runner/releases/download/v2.311.0/actions-runner-linux-x64-2.311.0.tar.gz
+```
+
+3. Extract the installer:
+```bash
+tar xzf ./actions-runner-linux-x64-2.311.0.tar.gz
+```
+
+4. Configure the runner:
+```bash
+./config.sh --url https://github.com/[ORGANIZATION]/[REPOSITORY] --token [YOUR_TOKEN]
+```
+
+5. Install and start the service:
+```bash
+sudo ./svc.sh install
+sudo ./svc.sh start
+```
+
+For detailed runner setup and management, refer to:
+- [GitHub Actions Runner Documentation](https://docs.github.com/en/actions/hosting-your-own-runners)
+- [Runner Application Updates](https://docs.github.com/en/actions/hosting-your-own-runners/autoscaling-with-self-hosted-runners#using-self-hosted-runner-auto-updates)
+- [Runner Security Guidelines](https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions)
 
 ## Installing Docker
 
@@ -135,4 +196,4 @@ electronic or mechanical, for any purpose, without the express written permissio
 
 Unauthorized copying, modification, distribution, or use of this software, via any medium, is strictly prohibited.
 
-For licensing inquiries, please contact: legal@byteflow.com
+For licensing inquiries, please contact: byteflowceo@gmail.com
