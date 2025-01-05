@@ -114,18 +114,16 @@ This project follows GitFlow conventions for development and releases. Please re
 
 1. [GitFlow Documentation](https://drive.google.com/drive/u/0/folders/1DRfC8TnM-2-GoaxCicyuKToOaUJByOQ_) for branching strategy
 2. [Project Documentation](https://docs.google.com/document/d/1Lmjqb_rKNU9S3vdKh-RQKvBCrQTgUSor5kQGkbRw-oc/edit?tab=t.0#heading=h.a6dboee1fzpj) for detailed feature roadmap and upcoming versions
-3. [CONTRIBUTING.md](./CONTRIBUTING.md) for contribution guidelines
 
 ### Branch Structure
 - `main`: Production releases
-- `develop`: Development branch
+- `dev`: Development branch
 - `feature/*`: New features
 - `release/*`: Release preparation
 - `hotfix/*`: Production fixes
 
 ### Version History
 - v1.0.2 - Current release
-- See [VERSION_HISTORY.md](./VERSION_HISTORY.md) for detailed version history
 
 ## License
 
