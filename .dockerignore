@@ -7,3 +7,5 @@ README.md
 .dockerignore
 Dockerfile
 docker-compose.yml 
+actions-runner/
+.eslintignore
