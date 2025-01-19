@@ -51,11 +51,7 @@ export default function HeroSection() {
 
   return (
     <main className="relative min-h-screen">
-      {/* Navigation */}
-
-      {/* Hero Carousel */}
       <div className="relative h-screen w-full overflow-hidden">
-        {/* Overlay with Text and Button */}
         <div className="absolute inset-0 z-30 flex flex-col items-center justify-center bg-black/50">
           <h1 className="mb-8 text-center text-4xl font-bold text-white md:text-6xl lg:text-10xl">
             THE EXPERIENCE YOU&apos;LL REMEMBER
@@ -70,7 +66,6 @@ export default function HeroSection() {
           </Link>
         </div>
 
-        {/* Carousel Slides */}
         {slides.map((slide, index) => (
           <div
             key={index}
