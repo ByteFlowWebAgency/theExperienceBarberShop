@@ -18,6 +18,11 @@ RUN npm run build
 # Base image for Runtime Stage
 FROM node:20-alpine AS production
 
+RUN addgroup --system <group>
+RUN adduser --system <user> --ingroup <group>
+USER <user>:<group>
+
+
 # Working Directory
 WORKDIR /app
 
