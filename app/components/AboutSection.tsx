@@ -1,4 +1,7 @@
+"use client";
+
 import { Card, CardContent } from "./card";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Deshawn from "../../public/assets/images/Deshawn.png";
 
@@ -17,7 +20,13 @@ export default function AboutSection() {
 
       <Card className="border-none shadow-none">
         <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center p-0">
-          <div className="relative w-[95%] md:w-[80%] lg:w-[65%] h-[350px] sm:h-[450px] lg:h-[600px] mx-auto">
+          <motion.div
+            className="relative w-[95%] md:w-[80%] lg:w-[65%] h-[350px] sm:h-[450px] lg:h-[600px] mx-auto"
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <div className="absolute -bottom-6 -right-4 w-full h-full border-4 border-blue-600 rounded-lg" />
             <Image
               src={Deshawn}
@@ -27,7 +36,7 @@ export default function AboutSection() {
               className="relative object-cover rounded-lg"
               priority
             />
-          </div>
+          </motion.div>
 
           <div className="space-y-8 px-2 lg:px-6">
             <h3 className="text-2xl sm:text-3xl font-bold text-blue-600">
