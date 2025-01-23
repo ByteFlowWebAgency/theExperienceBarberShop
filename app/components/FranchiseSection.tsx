@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 
 const FranchiseSection = () => {
   return (
@@ -15,8 +18,13 @@ const FranchiseSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Identify Section */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
+          <motion.div
+            className="bg-white shadow-lg rounded-lg p-6"
+            initial={{ opacity: 0, y: -100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <h3 className="text-xl font-semibold mb-4 border-b-4 border-blue-500 inline-block">
               Identify Candidates
             </h3>
@@ -32,10 +40,15 @@ const FranchiseSection = () => {
                 innovate within the business framework.
               </li>
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Teach Section */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
+          <motion.div
+            className="bg-white shadow-lg rounded-lg p-6"
+            initial={{ opacity: 0, y: -100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             <h3 className="text-xl font-semibold mb-4 border-b-4 border-blue-500 inline-block">
               Teach
             </h3>
@@ -51,10 +64,15 @@ const FranchiseSection = () => {
               <li>Being a servant-leader</li>
               <li>Accountability on all levels</li>
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Launch Section */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
+          <motion.div
+            className="bg-white shadow-lg rounded-lg p-6"
+            initial={{ opacity: 0, y: -100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
             <h3 className="text-xl font-semibold mb-4 border-b-4 border-blue-500 inline-block">
               Launch
             </h3>
@@ -73,7 +91,7 @@ const FranchiseSection = () => {
                 business
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

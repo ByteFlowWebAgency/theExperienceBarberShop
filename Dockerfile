@@ -14,7 +14,6 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-
 # Base image for Runtime Stage
 FROM node:20-alpine AS production
 
