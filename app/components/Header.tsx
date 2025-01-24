@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({ isTransparent = false }) => {
         </button>
 
         <nav className="hidden md:flex items-center gap-8">
-          {["Home", "Franchise"].map((item) => (
+          {["Home", "franchise"].map((item) => (
             <Link
               key={item}
               href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
