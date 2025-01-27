@@ -2,20 +2,56 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import DeShawnJohnson from "../../public/assets/images/DeShawnJohnson.jpg";
 
 const FranchiseSection = () => {
   return (
     <section className="bg-gray-100 py-12">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex justify-center">
-          <h2 className="text-3xl lg:text-4xl font-bold border-b-4 border-blue-500 text-center text-gray-800 mb-8">
-            The Franchising Process
+          <h2 className="text-3xl lg:text-4xl font-bold border-b-4 border-blue-500 text-center text-gray-800">
+            Looking to join The <em>Experience</em>?
           </h2>
         </div>
 
-        <p className="text-lg text-center mb-10">
-          <span className="font-semibold">IDENTIFY | TEACH | LAUNCH</span>
-        </p>
+        <div className="grid md:grid-cols-2 gap-8 items-center pb-20 pt-20">
+          <motion.div
+            className="relative h-[500px] w-full rounded-lg overflow-hidden shadow-xl"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="relative w-full h-full">
+              <Image
+                src={DeShawnJohnson}
+                alt="DeShawn Johnson"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h2 className="pl-36 text-3xl font-bold text-blue-600">
+              A Message from DeShawn
+            </h2>
+            <p className="text-xl text-gray-700 leading-relaxed">
+              "I'm looking to expand The Experience and bring our unique
+              approach to barbering to more communities. If you share our
+              passion for excellence and want to be part of something special,
+              I'd love to hear from you."
+            </p>
+          </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <motion.div
