@@ -45,10 +45,10 @@ const FranchiseSection = () => {
               A Message from DeShawn
             </h2>
             <p className="text-xl text-gray-700 leading-relaxed">
-              "I'm looking to expand The Experience and bring our unique
-              approach to barbering to more communities. If you share our
-              passion for excellence and want to be part of something special,
-              I'd love to hear from you."
+              &quot;I &quot;m looking to expand The Experience and bring our
+              unique approach to barbering to more communities. If you share our
+              passion for excellence and want to be part of something special, I
+              &quot;d love to hear from you.&quot;
             </p>
           </motion.div>
         </div>
