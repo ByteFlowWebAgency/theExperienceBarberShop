@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({ isTransparent = false }) => {
         </button>
 
         <nav className="hidden md:flex items-center gap-8">
-          {["Home", "Franchise"].map((item) => (
+          {["Home", "Franchise", "Gallery"].map((item) => (
             <Link
               key={item}
               href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
@@ -89,7 +89,7 @@ const Header: React.FC<HeaderProps> = ({ isTransparent = false }) => {
 
         {isMenuOpen && (
           <nav className="fixed inset-0 bg-black/95 flex flex-col items-center justify-center space-y-6 z-40">
-            {["Home", "Franchise"].map((item) => (
+            {["Home", "Franchise", "Gallery"].map((item) => (
               <Link
                 key={item}
                 href={item === "Home" ? "/" : `/${item.toLowerCase()}`}

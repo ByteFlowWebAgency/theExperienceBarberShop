@@ -6,7 +6,7 @@ const serviceCategories = [
   {
     title: "Popular Services",
     services: [
-      { name: "Haircut/Beard not included", price: "$30.00+" },
+      { name: "Haircut - Beard not included", price: "$30.00+" },
       { name: "Male Haircut with beard included", price: "$40.00" },
       { name: "Kids haircut", price: "$25.00" },
     ],
@@ -36,12 +36,9 @@ export default function Services() {
         backgroundImage: `url(${TheExperienceShop.src})`,
       }}
     >
-      {/* Background Overlay */}
       <div className="absolute inset-0 bg-black/30"></div>
 
-      {/* Content */}
       <div className="relative max-w-6xl mx-auto">
-        {/* Header */}
         <div className="mb-12 text-center">
           <h2 className="text-4xl font-serif text-white mb-2">OUR SERVICES</h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
@@ -50,7 +47,6 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Services Grid */}
         <div className="grid md:grid-cols-2 gap-8">
           {serviceCategories.map((category) => (
             <Card

@@ -11,14 +11,13 @@ const History = () => {
       </div>
 
       <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-700">
-        The Experience Barber & Beauty Shop provides a relaxing atmosphere,
-        professional service, competitive prices and quality. Services include
-        hair cutting, shampoos, trims, style, razor for men, women, and
-        children. Also offering beard trims and shaving. The Experience Barber &
-        Beauty Shop provides a relaxing atmosphere, professional service,
-        competitive prices and quality. Services include hair cutting, shampoos,
-        trims, style, razor for men, women, and children. Also offering beard
-        trims and shaving.
+        Deshawn D Johnson, Owner/Barber of The Experience Barber and Beauty
+        Shop. Specializes in all grades and styles of hair. Wants to use the
+        barbershop not just for cutting but a lace of relaxation and networking.
+        A place to grow and find your path in life. Leaving not only looking
+        good outwardly but becoming inwardly. Mentor, Reentry advocate and
+        multiple business owner with a heart to simply be a light in a dark
+        world.
       </p>
 
       <Link href="https://booksy.com/en-us/65218_lionheart-theexperience_barber-shop_31848_akron#ba_s=sgr_1">

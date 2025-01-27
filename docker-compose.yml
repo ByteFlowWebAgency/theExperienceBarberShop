@@ -8,18 +8,29 @@ services:
     volumes:
       - .:/app
       - /app/node_modules
+      - ./app/assets:/app/assets
+      - next-cache:/app/.next/cache
     ports:
       - "3000:3000"
     environment:
       NODE_ENV: development
+      NEXT_TELEMETRY_DISABLED: 1
+      NEXT_SHARP_PATH: /app/node_modules/sharp
     command: npm run dev
 
   production:
     build:
       context: .
       target: production
+    volumes:
+      - ./app/assets:/app/assets
     ports:
       - "3001:3000"
     environment:
       NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: 1
+      NEXT_SHARP_PATH: /app/node_modules/sharp
     command: npm run start
+
+volumes:
+  next-cache:

@@ -40,7 +40,7 @@ export default function AboutSection() {
 
           <div className="space-y-8 px-2 lg:px-6">
             <h3 className="text-2xl sm:text-3xl font-bold text-blue-600">
-              Meet the Barber Behind the Experience
+              Meet the Barber Behind the <em>Experience</em>
             </h3>
 
             <p className="text-base sm:text-lg text-gray-700 leading-relaxed">
