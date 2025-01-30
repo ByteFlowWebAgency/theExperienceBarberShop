@@ -35,21 +35,23 @@ const FranchiseSection = () => {
           </motion.div>
 
           <motion.div
-            className="space-y-6"
+            className="flex flex-col space-y-6"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2 className="pl-36 text-3xl font-bold text-blue-600">
+            <h2 className="text-center text-3xl font-bold text-blue-600">
               A Message from DeShawn
             </h2>
-            <p className="text-xl text-gray-700 leading-relaxed">
-              &quot;I &quot;m looking to expand The Experience and bring our
-              unique approach to barbering to more communities. If you share our
-              passion for excellence and want to be part of something special, I
-              &quot;d love to hear from you.&quot;
-            </p>
+            <div className="flex justify-center">
+              <p className="text-center text-xl text-gray-700 leading-relaxed">
+                &quot;I&rsquo;m looking to expand The Experience and bring our
+                unique approach to barbering to more communities. If you share
+                our passion for excellence and want to be part of something
+                special, I want to hear from you!&quot;
+              </p>
+            </div>
           </motion.div>
         </div>
 
@@ -62,7 +64,7 @@ const FranchiseSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h3 className="text-xl font-semibold mb-4 border-b-4 border-blue-500 inline-block">
-              Identify Candidates
+              How we Identify Candidates
             </h3>
             <ul className="list-disc list-inside space-y-2">
               <li>Leadership prowess</li>
@@ -86,7 +88,7 @@ const FranchiseSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <h3 className="text-xl font-semibold mb-4 border-b-4 border-blue-500 inline-block">
-              Teach
+              Teaching Process
             </h3>
             <p className="text-sm mb-4">(required)</p>
             <ul className="list-disc list-inside space-y-2">
@@ -110,7 +112,7 @@ const FranchiseSection = () => {
             transition={{ duration: 0.6, delay: 0.6 }}
           >
             <h3 className="text-xl font-semibold mb-4 border-b-4 border-blue-500 inline-block">
-              Launch
+              Official Launch
             </h3>
             <ul className="list-disc list-inside space-y-2">
               <li>

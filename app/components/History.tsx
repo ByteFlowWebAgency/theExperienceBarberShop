@@ -11,8 +11,8 @@ const History = () => {
       </div>
 
       <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-700">
-        Deshawn D Johnson, Owner/Barber of The Experience Barber and Beauty
-        Shop. Specializes in all grades and styles of hair. Wants to use the
+        Deshawn Johnson, Owner/Barber of The Experience Barber and Beauty Shop.
+        Specializes in all grades and styles of hair. Wants to use the
         barbershop not just for cutting but a lace of relaxation and networking.
         A place to grow and find your path in life. Leaving not only looking
         good outwardly but becoming inwardly. Mentor, Reentry advocate and
