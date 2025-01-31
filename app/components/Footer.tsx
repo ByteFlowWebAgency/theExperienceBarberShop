@@ -42,8 +42,7 @@ const Footer: React.FC = () => {
       <footer className="text-center mt-10 text-sm text-gray-500">
         <p>
           Terms & Conditions | Privacy Policy | Copyright © The Experience
-          Barbershop & Salon | Created & Maintained by BYTEFLOW | All rights
-          reserved.
+          Barbershop & Salon | Created by BYTEFLOW | All rights reserved.
         </p>
       </footer>
     </div>
