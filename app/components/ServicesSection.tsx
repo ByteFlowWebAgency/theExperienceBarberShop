@@ -1,6 +1,7 @@
 import React from "react";
 import TheExperienceShop from "../../public/assets/images/theexperienceshop.webp";
 import { Card } from "./card";
+import Script from "next/script";
 
 const serviceCategories = [
   {
@@ -28,19 +29,54 @@ const serviceCategories = [
   },
 ];
 
-export default function Services() {
+export default function ServicesSection() {
   return (
     <section
       className="relative bg-gray-100 bg-cover bg-center py-16 px-4"
-      style={{
-        backgroundImage: `url(${TheExperienceShop.src})`,
-      }}
+      style={{ backgroundImage: `url(${TheExperienceShop.src})` }}
+      aria-labelledby="services-heading"
     >
       <div className="absolute inset-0 bg-black/30"></div>
 
+      <Script
+        id="services-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "provider": {
+              "@type": "Barbershop",
+              "name": "The Experience Barber Shop",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "88 E Mill St",
+                "addressLocality": "Akron",
+                "addressRegion": "OH",
+                "postalCode": "44308",
+                "addressCountry": "US"
+              },
+              "telephone": "330-475-2552"
+            },
+            "serviceType": "Haircuts & Grooming",
+            "offers": serviceCategories.flatMap(category =>
+              category.services.map(service => ({
+                "@type": "Offer",
+                "name": service.name,
+                "price": service.price.replace(/[^0-9.]/g, ""),
+                "priceCurrency": "USD",
+                "availability": "https://schema.org/InStock"
+              }))
+            )
+          })
+        }}
+      />
+
       <div className="relative max-w-6xl mx-auto">
         <div className="mb-12 text-center">
-          <h2 className="text-4xl font-serif text-white mb-2">OUR SERVICES</h2>
+          <h2 id="services-heading" className="text-4xl font-serif text-white mb-2">
+            Our Services
+          </h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
           <p className="text-gray-200 mt-4">
             *Note: Walk-ins are accepted. Call ahead!
@@ -56,21 +92,14 @@ export default function Services() {
               <h3 className="text-2xl font-serif mb-4 border-b pb-2">
                 {category.title}
               </h3>
-              <div className="space-y-4">
+              <ul className="space-y-4">
                 {category.services.map((service) => (
-                  <div
-                    key={service.name}
-                    className="flex justify-between items-center"
-                  >
-                    <span className="text-lg text-gray-800">
-                      {service.name}
-                    </span>
-                    <span className="text-blue-600 font-medium">
-                      {service.price}
-                    </span>
-                  </div>
+                  <li key={service.name} className="flex justify-between items-center">
+                    <span className="text-lg text-gray-800">{service.name}</span>
+                    <span className="text-blue-600 font-medium">{service.price}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </Card>
           ))}
         </div>
