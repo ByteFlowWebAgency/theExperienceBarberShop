@@ -24,8 +24,12 @@ export default function GalleryPage() {
       <Header />
       <main className="container mx-auto px-4 py-24">
         <h1 className="text-4xl font-bold text-blue-600 text-center mb-12">
-          Gallery
+        Our Experience Gallery
         </h1>
+        <p className="text-lg text-gray-700 text-center mb-12">
+          Discover the artistry of our barbering franchise. View images of our expert stylists, 
+          satisfied clients, and modern grooming techniques.
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {images.map((image, index) => (
@@ -38,10 +42,11 @@ export default function GalleryPage() {
             >
               <Image
                 src={image}
-                alt={`Gallery image ${index + 1}`}
+                alt={`Professional baber service - Image ${index + 1}`}
                 fill
                 className="object-cover transition-transform duration-300 hover:scale-110"
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                loading={index < 4 ? "eager" : "lazy"}
                 priority={index < 4}
               />
             </motion.div>
