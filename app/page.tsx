@@ -28,7 +28,7 @@ const Page = () => {
               "postalCode": "44308",
               "addressCountry": "US"
             },
-            "email": "theexperiencebarbershopandsalon@gmail.com",
+            "email": "Expakron@gmail.com",
             "telephone": "330-475-2552",
             "openingHours": "Mon: Appointments only, Tue-Sa 10:00AM-6:00PM"
           })

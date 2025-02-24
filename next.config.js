@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-module.exports = nextConfig;
-module.exports = {
+const nextConfig = {
+    output: "export",
     reactStrictMode: true,
-    trailingSlash: true,
-    async rewrites() {
-      return [{ source: "/sitemap.xml", destination: "/api/sitemap" }];
+    images: {
+      unoptimized: true,
     },
+    trailingSlash: true,
   };
+  
+  module.exports = nextConfig;
   

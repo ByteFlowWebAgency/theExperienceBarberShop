@@ -79,7 +79,7 @@ export default function ServicesSection() {
           </h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto"></div>
           <p className="text-gray-200 mt-4">
-            *Note: Walk-ins are accepted. Call ahead!
+            <strong>*Note: </strong>Walk-ins are accepted. Call ahead!
           </p>
         </div>
 
@@ -87,16 +87,16 @@ export default function ServicesSection() {
           {serviceCategories.map((category) => (
             <Card
               key={category.title}
-              className="p-6 bg-white bg-opacity-90 shadow-lg rounded-md"
+              className="p-6 bg-white bg-opacity-90 font-semibold shadow-lg rounded-md"
             >
-              <h3 className="text-2xl font-serif mb-4 border-b pb-2">
+              <h3 className="text-2xl font-serif font-bold mb-4 border-b pb-2">
                 {category.title}
               </h3>
               <ul className="space-y-4">
                 {category.services.map((service) => (
                   <li key={service.name} className="flex justify-between items-center">
                     <span className="text-lg text-gray-800">{service.name}</span>
-                    <span className="text-blue-600 font-medium">{service.price}</span>
+                    <span className="text-blue-600 font-semibold">{service.price}</span>
                   </li>
                 ))}
               </ul>
