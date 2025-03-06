@@ -18,6 +18,7 @@ export default function RootLayout({
         <meta property="og:description" content="Get the best haircuts and grooming services with our expert barbers." />
         <meta property="og:image" content="https://www.theexpshop.com/assets/images/theExperienceBarberShopAndSalon3.jpg" />
         <meta property="og:url" content="https://www.theexpshop.com" />
+        <meta name="google-site-verification" content="yg1HAPOu_5PdHoZ28ehDNi5MgnXCu0aLNp5_VktPUyo" />
         <link rel="icon" type="image/png" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
