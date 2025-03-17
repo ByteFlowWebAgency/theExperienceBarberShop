@@ -68,11 +68,12 @@ const ContactForm = () => {
         publicKey
       );
       console.log("Email sent successfully: ", response);
-      console.log(data);
       alert("Your message has been sent!");
+      form.reset();
     } catch (error) {
       console.error("Failed to send email: ", error);
       alert("Failed to send your message. Please try again later.");
+      form.reset();
     }
   };
 
