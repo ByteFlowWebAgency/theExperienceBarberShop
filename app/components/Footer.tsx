@@ -13,9 +13,11 @@ const Footer: React.FC = () => {
             CONTACTS
           </h1>
           <p className="text-gray-600 mb-2">
-          <strong>Address: </strong>88 E Mill St Akron, OH 44308
+            <strong>Address: </strong>88 E Mill St Akron, OH 44308
           </p>
-          <p className="text-gray-600 mb-2"><strong>Phone Number: </strong>330-475-2552</p>
+          <p className="text-gray-600 mb-2">
+            <strong>Phone Number: </strong>330-475-2522
+          </p>
           <p className="text-gray-600 mb-2">
             <strong>Email: </strong>expakron@gmail.com
           </p>
