@@ -1,5 +1,43 @@
 import React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://www.theexpshop.com"),
+  title: "The Experience Barber & Beauty Shop | Best Cuts in Downtown Akron",
+  description:
+    "Premium grooming and styling for the modern gentleman in downtown Akron. Precision haircuts, beard detailing, and a welcoming barbershop experience.",
+  authors: [{ name: "The Experience Barber Shop" }],
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+    ],
+    apple: { url: "/apple-touch-icon.png", sizes: "180x180" },
+  },
+  verification: {
+    google: "yg1HAPOu_5PdHoZ28ehDNi5MgnXCu0aLNp5_VktPUyo",
+  },
+  openGraph: {
+    type: "website",
+    title: "The Experience Barber Shop - Best Cuts in Town",
+    description:
+      "Get the best haircuts and grooming services with our expert barbers.",
+    url: "https://www.theexpshop.com",
+    images: [
+      "https://www.theexpshop.com/assets/images/theExperienceBarberShopAndSalon3.jpg",
+    ],
+  },
+};
 
 export default function RootLayout({
   children,
@@ -7,23 +45,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={inter.variable}>
       <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <meta name="author" content="The Experience Barber Shop" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="The Experience Barber Shop - Best Cuts in Town" />
-        <meta property="og:description" content="Get the best haircuts and grooming services with our expert barbers." />
-        <meta property="og:image" content="https://www.theexpshop.com/assets/images/theExperienceBarberShopAndSalon3.jpg" />
-        <meta property="og:url" content="https://www.theexpshop.com" />
-        <meta name="google-site-verification" content="yg1HAPOu_5PdHoZ28ehDNi5MgnXCu0aLNp5_VktPUyo" />
-        <link rel="icon" type="image/png" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#2563eb" />
+        {/* Font Awesome (icon webfont) — works with static export */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
       </head>
       <body>{children}</body>
     </html>

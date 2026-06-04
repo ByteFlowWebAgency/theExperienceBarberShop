@@ -1,0 +1,178 @@
+.profile {
+  background: var(--surface-muted);
+  padding: 6rem 0;
+}
+.profileCard {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-xl);
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.profileImgWrap {
+  position: relative;
+  min-height: 400px;
+}
+.profileImg {
+  object-fit: cover;
+  /* Deshawn sits on the left of this photo — shift the crop so he stays in frame */
+  object-position: 30% center;
+}
+.profileBody {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.profileName {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--dark-heading);
+  margin-bottom: 0.5rem;
+}
+.profileRole {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.profileText {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  color: var(--body-text);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.values {
+  background: #fff;
+  padding: 6rem 0;
+}
+.valuesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.valueCard {
+  background: var(--surface-muted);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-subtle);
+  transition: box-shadow 0.2s ease;
+}
+.valueCard:hover {
+  box-shadow: var(--shadow-md);
+}
+.valueIcon {
+  width: 4rem;
+  height: 4rem;
+  background: #fff;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 1.5rem;
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+.valueTitle {
+  font-weight: 700;
+  color: var(--dark-heading);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.valueText {
+  color: var(--body-text);
+  line-height: 1.7;
+}
+
+.impact {
+  background: var(--dark-heading);
+  color: #fff;
+  padding: 6rem 0;
+}
+.impactGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.impactTitle {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1.5rem;
+}
+.impactText {
+  color: #d1d5db;
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.impactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-light);
+  font-weight: 600;
+  border-bottom: 1px solid var(--primary-light);
+  padding-bottom: 0.25rem;
+}
+.impactLink:hover {
+  color: #fff;
+  border-color: #fff;
+}
+.statTiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.statTile {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+.statTileNum {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.statTileLabel {
+  color: #d1d5db;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .profileBody {
+    padding: 4rem;
+  }
+  .valuesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .impactTitle {
+    font-size: 3rem;
+  }
+  .statTileNum {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .profileCard {
+    grid-template-columns: 1fr 1fr;
+  }
+  .impactGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

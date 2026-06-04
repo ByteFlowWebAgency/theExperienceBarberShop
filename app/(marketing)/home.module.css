@@ -1,0 +1,308 @@
+/* ---------------------------------- Hero --------------------------------- */
+.hero {
+  position: relative;
+  min-height: 600px;
+  height: 85vh;
+  display: flex;
+  align-items: center;
+}
+.heroBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.heroImg {
+  object-fit: cover;
+}
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+.heroContainer {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  padding-top: 5rem;
+}
+.heroInner {
+  max-width: 48rem;
+}
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.heroTitle {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+.heroText {
+  font-size: 1.25rem;
+  color: #e5e7eb;
+  margin-bottom: 2.5rem;
+  max-width: 42rem;
+  line-height: 1.6;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+.heroActions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* --------------------------------- Trust --------------------------------- */
+.trust {
+  background: #fff;
+  padding: 6rem 0;
+}
+.trustGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.trustImageWrap {
+  position: relative;
+  order: 2;
+}
+.trustImage {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-xl);
+  position: relative;
+  z-index: 10;
+}
+.trustFrame {
+  display: none;
+}
+.ratingBadge {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 1rem;
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 20;
+}
+.ratingIcon {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 1.25rem;
+}
+.ratingNum {
+  font-weight: 700;
+  color: var(--dark-heading);
+  font-size: 1.125rem;
+}
+.ratingSub {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.trustBody {
+  order: 1;
+}
+.trustTitle {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 2.25rem;
+  color: var(--dark-heading);
+  margin-bottom: 1.5rem;
+}
+.trustPara {
+  font-size: 1.125rem;
+  color: var(--body-text);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+.trustFeatures {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+.feature i {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.featureTitle {
+  font-weight: 700;
+  color: var(--dark-heading);
+  margin-bottom: 0.25rem;
+}
+.featureText {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.storyLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.25rem;
+}
+.storyLink:hover {
+  color: var(--primary-hover);
+}
+
+/* ------------------------------- Services -------------------------------- */
+.services {
+  background: var(--surface-muted);
+  padding: 6rem 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.serviceGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.serviceCard {
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-subtle);
+  transition: box-shadow 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.serviceCard:hover {
+  box-shadow: var(--shadow-lg);
+}
+.serviceIcon {
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(37, 99, 235, 0.1);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.serviceCard:hover .serviceIcon {
+  background: var(--primary);
+  color: #fff;
+}
+.serviceName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dark-heading);
+  margin-bottom: 0.5rem;
+}
+.serviceDesc {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+}
+.serviceFoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+.servicePrice {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--dark-heading);
+}
+.serviceBook {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.serviceBook:hover {
+  color: var(--primary-hover);
+}
+.popularTag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-bottom-left-radius: var(--radius);
+}
+.servicesFoot {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .heroActions {
+    flex-direction: row;
+  }
+}
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 3.75rem;
+  }
+  .trustTitle {
+    font-size: 3rem;
+  }
+  .serviceGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .heroTitle {
+    font-size: 4.5rem;
+  }
+  .trustGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .trustImageWrap {
+    order: 1;
+  }
+  .trustBody {
+    order: 2;
+  }
+  .ratingBadge {
+    left: -1.5rem;
+  }
+  .serviceGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

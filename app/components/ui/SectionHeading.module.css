@@ -1,0 +1,31 @@
+.wrap {
+  text-align: center;
+  max-width: 48rem;
+  margin: 0 auto 4rem;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 1.875rem;
+  margin-bottom: 1rem;
+  color: var(--dark-heading);
+}
+.titleLight {
+  color: #fff;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+.subtitleLight {
+  color: #9ca3af;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+}
