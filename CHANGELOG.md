@@ -1,5 +1,17 @@
 # Version History
 
+## [1.0.3] - 2025-01-23
+
+### Added
+
+- GitHub Actions runner implementation for CI/CD pipeline (REMOVED)
+- Enhanced development documentation
+- Animations to both Homepage and Franchise Page
+
+### Changed
+
+- GitHub Actions now uses 'ubuntu-latest'
+
 ## [1.0.2] - 2025-01-05
 
 ### Added

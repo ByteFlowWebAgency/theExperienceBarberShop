@@ -1,0 +1,159 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+}
+
+.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.inner {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* ------------------------------- Logo ------------------------------------ */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logoImg {
+  height: 2.75rem;
+  width: auto;
+  transition: filter 0.2s ease;
+}
+/* Navy logo flips to white when sitting over a dark hero image */
+.logoImgLight {
+  filter: brightness(0) invert(1);
+}
+
+/* ------------------------------- Nav ------------------------------------- */
+.nav {
+  display: none;
+  align-items: center;
+  gap: 1.75rem;
+  /* Absolutely centered in the header so it stays page-centered
+     regardless of the logo / Book button widths. */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.navLink {
+  font-weight: 500;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.navLinkLight {
+  color: #fff;
+}
+.navLinkLight:hover {
+  color: #e5e7eb;
+}
+.navLinkDark {
+  color: var(--body-text);
+}
+.navLinkDark:hover {
+  color: var(--primary);
+}
+.active {
+  border-bottom-color: var(--primary);
+}
+.activeColor {
+  color: var(--primary);
+}
+
+/* ------------------------------ Actions ---------------------------------- */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.menuToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+.menuToggleLight {
+  color: #fff;
+}
+.menuToggleDark {
+  color: var(--dark-heading);
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    display: flex;
+  }
+  .menuToggle {
+    display: none;
+  }
+}
+
+/* -------------------------- Mobile overlay ------------------------------- */
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+.mobileTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.mobileClose {
+  font-size: 1.75rem;
+  color: var(--dark-heading);
+}
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+}
+.mobileLink {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dark-heading);
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.mobileLink:hover,
+.mobileActive {
+  color: var(--primary);
+}
+.mobileCta {
+  margin-top: 2rem;
+}
+.mobilePhone {
+  margin-top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--body-text);
+}

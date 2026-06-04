@@ -1,0 +1,12 @@
+import coreWebVitals from "eslint-config-next/core-web-vitals";
+import typescript from "eslint-config-next/typescript";
+
+const eslintConfig = [
+  ...coreWebVitals,
+  ...typescript,
+  {
+    ignores: ["actions-runner/**", "out/**", ".next/**", "node_modules/**"],
+  },
+];
+
+export default eslintConfig;
