@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 import { clsx } from "clsx";
 import { Button } from "@/components/ui/Button";
 import { NAV_ITEMS, BOOKSY_URL, PHONE, PHONE_HREF } from "@/lib/site";
+import { services } from "@/lib/services";
 import Logo from "@public/assets/images/TheExperienceBarberShopAndSalonLogo.png";
 import styles from "./Header.module.css";
 
@@ -23,6 +24,7 @@ const Header: React.FC<HeaderProps> = ({ lightHero = false }) => {
   const current = normalize(pathname);
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -49,16 +51,72 @@ const Header: React.FC<HeaderProps> = ({ lightHero = false }) => {
         <nav className={styles.nav}>
           {NAV_ITEMS.map((item) => {
             const isActive = current === item.href;
+            const linkClass = clsx(
+              styles.navLink,
+              darkText ? styles.navLinkDark : styles.navLinkLight,
+              isActive && styles.active,
+              isActive && darkText && styles.activeColor
+            );
+
+            // Services keeps its link to /services but gains a hover/focus
+            // dropdown of all services. Opens on hover or keyboard focus,
+            // closes on mouse-leave or when focus leaves the whole group.
+            if (item.href === "/services") {
+              return (
+                <div
+                  key={item.href}
+                  className={styles.navItem}
+                  onMouseEnter={() => setServicesOpen(true)}
+                  onMouseLeave={() => setServicesOpen(false)}
+                  onFocus={() => setServicesOpen(true)}
+                  onBlur={(e) => {
+                    if (!e.currentTarget.contains(e.relatedTarget as Node | null)) {
+                      setServicesOpen(false);
+                    }
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Escape") setServicesOpen(false);
+                  }}
+                >
+                  <Link
+                    href={item.href}
+                    className={linkClass}
+                    aria-current={isActive ? "page" : undefined}
+                    aria-haspopup="menu"
+                    aria-expanded={servicesOpen}
+                  >
+                    {item.label}
+                  </Link>
+                  <div
+                    className={clsx(
+                      styles.dropdown,
+                      servicesOpen && styles.dropdownOpen
+                    )}
+                    role="menu"
+                    aria-label="Services"
+                  >
+                    <div className={styles.dropdownPanel}>
+                      {services.map((s) => (
+                        <Link
+                          key={s.slug}
+                          href={`/services/${s.slug}`}
+                          className={styles.dropdownItem}
+                          role="menuitem"
+                        >
+                          {s.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={clsx(
-                  styles.navLink,
-                  darkText ? styles.navLinkDark : styles.navLinkLight,
-                  isActive && styles.active,
-                  isActive && darkText && styles.activeColor
-                )}
+                className={linkClass}
                 aria-current={isActive ? "page" : undefined}
               >
                 {item.label}

@@ -81,6 +81,60 @@
   color: var(--primary);
 }
 
+/* ---------------------------- Services dropdown -------------------------- */
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Transparent bridge so the hover area is continuous from link to panel. */
+  padding-top: 0.85rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, visibility 0.18s ease;
+  z-index: 60;
+}
+.dropdownOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.dropdownPanel {
+  min-width: 14rem;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-0.4rem);
+  transition: transform 0.18s ease;
+}
+.dropdownOpen .dropdownPanel {
+  transform: translateY(0);
+}
+.dropdownItem {
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--body-text);
+  white-space: nowrap;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.dropdownItem:hover,
+.dropdownItem:focus-visible {
+  background: var(--surface-muted);
+  color: var(--primary);
+}
+
 /* ------------------------------ Actions ---------------------------------- */
 .actions {
   display: flex;
