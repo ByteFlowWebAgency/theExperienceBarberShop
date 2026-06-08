@@ -1,0 +1,160 @@
+/* ---------------------------------- Hero --------------------------------- */
+.hero {
+  background: linear-gradient(180deg, var(--surface-muted) 0%, #fff 100%);
+  /* Extra top padding clears the fixed header + barber-pole stripe. */
+  padding: 9rem 0 3.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.badge {
+  display: inline-block;
+  padding: 0.375rem 1rem;
+  border-radius: 9999px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+.title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--dark-heading);
+  line-height: 1.1;
+}
+
+/* -------------------------------- Content -------------------------------- */
+.content {
+  background: #fff;
+  padding: 4rem 0 5rem;
+}
+.card {
+  max-width: 42rem;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: 3rem;
+  text-align: center;
+}
+.desc {
+  color: var(--body-text);
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.priceLabel {
+  color: var(--text-muted);
+  font-size: 1rem;
+  font-weight: 600;
+}
+.price {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--dark-heading);
+  line-height: 1;
+}
+
+/* ----------------------------- Other Services ---------------------------- */
+.related {
+  background: var(--surface-muted);
+  padding: 5rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+.relatedTitle {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark-heading);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.relatedGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.relatedCard {
+  flex: 1 1 280px;
+  max-width: 360px;
+  background: #fff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.relatedCard:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+.relatedBadge {
+  align-self: flex-start;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(37, 99, 235, 0.1);
+  color: var(--primary);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.relatedName {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dark-heading);
+  margin: 0.85rem 0 0.5rem;
+}
+.relatedDesc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: 1.25rem;
+}
+.relatedFoot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+.relatedPrice {
+  font-weight: 700;
+  color: var(--dark-heading);
+}
+.relatedLink {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: gap 0.2s ease;
+}
+.relatedCard:hover .relatedLink {
+  gap: 0.6rem;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 3.75rem;
+  }
+}

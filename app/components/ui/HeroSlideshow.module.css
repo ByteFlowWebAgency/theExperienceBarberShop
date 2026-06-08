@@ -1,0 +1,19 @@
+.slideshow {
+  position: absolute;
+  inset: 0;
+}
+
+.slide {
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+.active {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide {
+    transition: none;
+  }
+}
