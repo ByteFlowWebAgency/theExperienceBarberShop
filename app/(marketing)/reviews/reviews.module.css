@@ -4,9 +4,10 @@
   border-bottom: 1px solid var(--border-subtle);
 }
 .statsGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
   text-align: center;
 }
 .statNum {
@@ -120,7 +121,7 @@
 
 @media (min-width: 768px) {
   .statsGrid {
-    grid-template-columns: repeat(4, 1fr);
+    gap: 5rem;
   }
   .statNum {
     font-size: 3rem;
