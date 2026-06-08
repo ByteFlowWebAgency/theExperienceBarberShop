@@ -22,7 +22,7 @@ async function getAccessToken() {
   const data = await res.json();
 
   if (!res.ok) {
-    console.error("❌ Failed to get access token:", data);
+    console.error("❌ Failed to get access token:");
     process.exit(1);
   }
 
@@ -43,7 +43,7 @@ async function getAccounts(token) {
   const data = await res.json();
 
   if (!res.ok) {
-    console.error("❌ Failed to fetch accounts:", data);
+    console.error("❌ Failed to fetch accounts:");
     process.exit(1);
   }
 
@@ -80,7 +80,7 @@ async function getLocations(token, accountName) {
   const data = await res.json();
 
   if (!res.ok) {
-    console.error(`❌ Failed to fetch locations for ${accountName}:`, data);
+    console.error(`❌ Failed to fetch locations for ${accountName}:`);
     return;
   }
 
