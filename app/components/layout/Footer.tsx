@@ -18,7 +18,6 @@ const QUICK_LINKS = [
   { label: "Services & Pricing", href: "/services" },
   { label: "Our Story", href: "/our-story" },
   { label: "Gallery", href: "/gallery" },
-  { label: "Franchise Opportunities", href: "/franchise" },
 ];
 
 const Footer: React.FC = () => {
@@ -115,14 +114,6 @@ const Footer: React.FC = () => {
             </a>
             .
           </p>
-          <div className={styles.legal}>
-            <a href="#" className={styles.legalLink}>
-              Privacy Policy
-            </a>
-            <a href="#" className={styles.legalLink}>
-              Terms of Service
-            </a>
-          </div>
         </div>
       </Container>
     </footer>
