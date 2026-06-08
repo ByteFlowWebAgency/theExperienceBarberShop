@@ -28,7 +28,7 @@ export const services: Service[] = [
     category: "Popular Services",
     price: 30,
     description:
-      "Ideal for those seeking a clean, classic cut. A precision haircut tailored to your style, finished with a hot lather neck shave and a styling product application. Beard service not included.",
+      "Ideal for those seeking a clean, classic cut. A precision haircut tailored to your style. Beard service not included.",
   },
   {
     slug: "haircut-and-beard",
@@ -36,7 +36,7 @@ export const services: Service[] = [
     category: "Popular Services",
     price: 40,
     description:
-      "Our most requested service and a complete grooming package — a precision haircut paired with full beard trim and shaping, a hot towel treatment, a razor line up, and premium styling.",
+      "Our most requested service and a complete grooming package — a precision haircut paired with full beard trim and shaping, a razor line up, and premium styling.",
   },
   {
     slug: "kids-haircut",
@@ -44,7 +44,7 @@ export const services: Service[] = [
     category: "Popular Services",
     price: 25,
     description:
-      "Professional grooming for the younger generation, ages 12 and under. A kid-friendly haircut with basic styling — and a lollipop on the way out.",
+      "Professional grooming for the younger generation, ages 12 and under.",
   },
   {
     slug: "shave-service",
