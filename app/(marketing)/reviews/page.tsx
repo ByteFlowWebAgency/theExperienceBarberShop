@@ -8,63 +8,61 @@ import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CtaSection from "@/components/ui/CtaSection";
 import HeroImg from "@public/assets/images/theExperienceBarberShopAndSalon3.jpg";
+import { getReviewsSafe, getRatingSummary } from "@/lib/gbp/reviews";
 import styles from "./reviews.module.css";
 
-export const metadata: Metadata = {
-  title: "Reviews | The Experience Barber & Beauty Shop",
-  description:
-    "See why downtown Akron trusts The Experience for the perfect cut. 4.8-star rated with 50+ five-star reviews.",
+// Regenerate hourly so the Google rating stays fresh without rebuilding.
+export const revalidate = 3600;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { averageRating, totalReviewCount } = await getRatingSummary();
+  const rating = (Math.round(averageRating * 10) / 10).toFixed(1);
+  return {
+    title: "Reviews | The Experience Barber & Beauty Shop",
+    description: `See why downtown Akron trusts The Experience for the perfect cut. ${rating}-star rated with ${totalReviewCount}+ five-star reviews.`,
+  };
+}
+
+const Stars = ({ rating = 5 }: { rating?: number }) => {
+  return (
+    <>
+      {[1, 2, 3, 4, 5].map((i) => {
+        if (i <= Math.floor(rating)) {
+          return <i key={i} className="fa-solid fa-star" />;
+        } else if (i - rating < 1 && i - rating > 0) {
+          return <i key={i} className="fa-solid fa-star-half-stroke" />;
+        } else {
+          return <i key={i} className="fa-regular fa-star" />;
+        }
+      })}
+    </>
+  );
 };
 
-const stats = [
-  { num: "4.8", label: "Google Rating", stars: true },
-  { num: "50+", label: "Google Reviews" },
-  { num: "4.9", label: "Booksy Rating", stars: true },
-  { num: "100+", label: "Booksy Reviews" },
-];
+function timeAgo(dateStr: string): string {
+  const now = new Date();
+  const then = new Date(dateStr);
+  const seconds = Math.floor((now.getTime() - then.getTime()) / 1000);
+  const minutes = Math.floor(seconds / 60);
+  const hours = Math.floor(minutes / 60);
+  const days = Math.floor(hours / 24);
+  const months = Math.floor(days / 30);
+  const years = Math.floor(days / 365);
 
-const testimonials = [
-  {
-    name: "Ashleigh Bender",
-    text: "I brought my 2 year old in for his first real haircut, Deshawn was patient kind and worked well with my son. Despite the fact he did not sit still, we left with a perfect haircut. We will absolutely be back!",
-  },
-  {
-    name: "Yesu Tor",
-    text: "Deshawn is so much talented and gifted. When he touches your head he brings the good look out of you. He is so kind and full of grace. I will highly recommend this place for anyone looking for a place to have their haircut.",
-  },
-  {
-    name: "Riley Nemoseck",
-    text: "Great place and great haircut 👌",
-  },
-  {
-    name: "James Hildwine",
-    text: "Went in today to get cleaned up and Deshawn did a wonderful job, highly recommend and will be back!",
-  },
-  {
-    name: "Emanuel Scott",
-    text: "This is hands down one of the best barbershops I've been to in my life. The location is in a safe place to where you don't have to worry about any violence. The atmosphere is relaxing, I often fall asleep sleep during my haircuts and I wake up feeling renewed and motivated. Overall if I could give it more than 5 stars I would.",
-  },
-  {
-    name: "Tyrone Johnson",
-    text: "Few weeks ago, I needed to get a haircut for a date, the owner DeShawn hooked me up! Highly suggest visiting The Experience Barber & Beauty Shop for a haircut, you will not be disappointed!",
-  },
-];
+  if (years > 0) return `${years} year${years > 1 ? "s" : ""} ago`;
+  if (months > 0) return `${months} month${months > 1 ? "s" : ""} ago`;
+  if (days > 0) return `${days} day${days > 1 ? "s" : ""} ago`;
+  if (hours > 0) return `${hours} hour${hours > 1 ? "s" : ""} ago`;
+  return `${minutes} minute${minutes > 1 ? "s" : ""} ago`;
+}
 
-const Stars = ({ half = false }: { half?: boolean }) => (
-  <>
-    <i className="fa-solid fa-star" />
-    <i className="fa-solid fa-star" />
-    <i className="fa-solid fa-star" />
-    <i className="fa-solid fa-star" />
-    <i className={half ? "fa-solid fa-star-half-stroke" : "fa-solid fa-star"} />
-  </>
-);
+export default async function ReviewsPage() {
+  const { reviews, averageRating, totalReviewCount } = await getReviewsSafe();
+  const roundedRating = Math.round(averageRating * 10) / 10;
 
-export default function ReviewsPage() {
   return (
     <>
       <Header />
-
       <PageHero
         image={HeroImg}
         alt="A happy client after a fresh cut at The Experience"
@@ -73,24 +71,23 @@ export default function ReviewsPage() {
         subtitle="See why Akron trusts us for the perfect cut."
         size="lg"
       />
-
       <BarberPole />
 
       {/* Stats */}
       <section className={styles.stats}>
         <Container>
           <div className={styles.statsGrid}>
-            {stats.map((s) => (
-              <div key={s.label}>
-                <div className={styles.statNum}>{s.num}</div>
-                {s.stars && (
-                  <div className={styles.statStars}>
-                    <Stars half />
-                  </div>
-                )}
-                <div className={styles.statLabel}>{s.label}</div>
+            <div>
+              <div className={styles.statNum}>{roundedRating.toFixed(1)}</div>
+              <div className={styles.statStars}>
+                <Stars rating={roundedRating} />
               </div>
-            ))}
+              <div className={styles.statLabel}>Google Rating</div>
+            </div>
+            <div>
+              <div className={styles.statNum}>{totalReviewCount}+</div>
+              <div className={styles.statLabel}>Google Reviews</div>
+            </div>
           </div>
         </Container>
       </section>
@@ -103,18 +100,37 @@ export default function ReviewsPage() {
             subtitle="Don't just take our word for it."
           />
           <div className={styles.masonry}>
-            {testimonials.map((t) => (
-              <div key={t.name} className={styles.tCard}>
+            {reviews.map((r) => (
+              <div key={r.reviewId} className={styles.tCard}>
                 <div className={styles.tStars}>
-                  <Stars />
+                  <Stars rating={5} />
                 </div>
-                <p className={styles.tBody}>{t.text}</p>
+                <p className={styles.tBody}>{r.comment}</p>
                 <div className={styles.tAuthor}>
-                  <div className={styles.tAvatar}>{t.name.charAt(0)}</div>
+                  {r.reviewer.isAnonymous ? (
+                    <img
+                      src={r.reviewer.profilePhotoUrl}
+                      alt={r.reviewer.displayName}
+                      className={styles.tAvatarImg}
+                      width={40}
+                      height={40}
+                    />
+                  ) : (
+                    <div className={styles.tAvatar}>
+                      {r.reviewer.isAnonymous
+                        ? "?"
+                        : r.reviewer.displayName.charAt(0)}
+                    </div>
+                  )}
                   <div>
-                    <div className={styles.tName}>{t.name}</div>
+                    <div className={styles.tName}>
+                      {r.reviewer.isAnonymous
+                        ? "Anonymous"
+                        : r.reviewer.displayName}
+                    </div>
                     <div className={styles.tVerified}>
-                      <i className="fa-brands fa-google" /> Google review
+                      <i className="fa-brands fa-google" /> Google review ·{" "}
+                      {timeAgo(r.createTime)}
                     </div>
                   </div>
                 </div>
@@ -134,7 +150,6 @@ export default function ReviewsPage() {
       </section>
 
       <CtaSection />
-
       <Footer />
     </>
   );

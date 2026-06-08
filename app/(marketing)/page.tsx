@@ -9,6 +9,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import HeroSlideshow from "@/components/ui/HeroSlideshow";
 import { Button } from "@/components/ui/Button";
 import { BOOKSY_URL } from "@/lib/site";
+import { getRatingSummary } from "@/lib/gbp/reviews";
 import HeroImg from "@public/assets/images/theExperienceBarberShopAndSalon1.jpg";
 import HeroImg2 from "@public/assets/images/theExperienceBarberShopAndSalon2.jpg";
 import HeroImg3 from "@public/assets/images/theExperienceBarberShopAndSalon3.jpg";
@@ -45,7 +46,13 @@ const services = [
   },
 ];
 
-export default function HomePage() {
+// Regenerate hourly so the Google rating stays fresh without rebuilding.
+export const revalidate = 3600;
+
+export default async function HomePage() {
+  const { averageRating, totalReviewCount } = await getRatingSummary();
+  const roundedRating = (Math.round(averageRating * 10) / 10).toFixed(1);
+
   return (
     <>
       <script
@@ -68,6 +75,11 @@ export default function HomePage() {
             email: "expakron@gmail.com",
             telephone: "330-475-2522",
             openingHours: "Mo by appointment, Tu-Sa 10:00-18:00",
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: roundedRating,
+              reviewCount: totalReviewCount,
+            },
           }),
         }}
       />
@@ -130,8 +142,10 @@ export default function HomePage() {
                   <i className="fa-solid fa-star" />
                 </div>
                 <div>
-                  <div className={styles.ratingNum}>4.8/5 stars</div>
-                  <div className={styles.ratingSub}>50+ reviews</div>
+                  <div className={styles.ratingNum}>{roundedRating}/5 stars</div>
+                  <div className={styles.ratingSub}>
+                    {totalReviewCount}+ reviews
+                  </div>
                 </div>
               </div>
             </div>
