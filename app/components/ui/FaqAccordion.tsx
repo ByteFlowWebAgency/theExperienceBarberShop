@@ -17,7 +17,7 @@ export interface FaqCategory {
   items: FaqItemData[];
 }
 
-function FaqItem({ q, a, link }: FaqItemData) {
+function FaqItem({ q, a, link }: Readonly<FaqItemData>) {
   const [open, setOpen] = useState(false);
   const answerId = useId();
   return (
@@ -60,9 +60,9 @@ function FaqItem({ q, a, link }: FaqItemData) {
 
 export default function FaqAccordion({
   categories,
-}: {
+}: Readonly<{
   categories: FaqCategory[];
-}) {
+}>) {
   return (
     <>
       {categories.map((cat) => (

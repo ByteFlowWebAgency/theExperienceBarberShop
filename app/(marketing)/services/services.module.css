@@ -173,3 +173,14 @@
     font-size: 2.5rem;
   }
 }
+
+/* Respect users who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .cardLink {
+    transition: none;
+  }
+  .card:hover {
+    transform: none;
+  }
+}

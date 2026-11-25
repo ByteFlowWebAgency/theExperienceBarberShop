@@ -35,15 +35,15 @@
   text-rendering: auto;
 }
 .fa-solid {
-  font-family: "Font Awesome 6 Free";
+  font-family: "Font Awesome 6 Free", sans-serif;
   font-weight: 900;
 }
 .fa-regular {
-  font-family: "Font Awesome 6 Free";
+  font-family: "Font Awesome 6 Free", sans-serif;
   font-weight: 400;
 }
 .fa-brands {
-  font-family: "Font Awesome 6 Brands";
+  font-family: "Font Awesome 6 Brands", sans-serif;
   font-weight: 400;
 }
 .fa-arrow-right::before {

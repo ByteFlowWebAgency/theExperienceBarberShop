@@ -14,7 +14,7 @@ import { services, getServiceBySlug, getRelatedServices } from "@/lib/services";
 import styles from "./service.module.css";
 
 // Pre-render a static page for every service at build time.
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }));
 }
 

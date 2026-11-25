@@ -316,3 +316,14 @@
     grid-template-columns: 3fr 2fr;
   }
 }
+
+/* Respect users who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  .relatedCard,
+  .relatedLink {
+    transition: none;
+  }
+  .relatedCard:hover {
+    transform: none;
+  }
+}
