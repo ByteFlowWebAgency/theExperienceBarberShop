@@ -108,49 +108,49 @@ ${iconRules.join("\n")}
 `;
 }
 
-async function main() {
-  const { fontawesomeSubset } = await import("fontawesome-subset");
-  const { version, icons: iconsByName } = loadIconMetadata();
-
+/** Every `fa-<name>` class used in app/, excluding the family classes. */
+function findUsedClassNames() {
   const used = new Set();
   for (const file of sourceFiles(srcDir)) {
     for (const match of fs.readFileSync(file, "utf8").matchAll(/\bfa-([a-z0-9-]+)/g)) {
       if (!NON_ICON_CLASSES.has(match[1])) used.add(match[1]);
     }
   }
+  return used;
+}
 
-  const unknown = [...used].filter((name) => !iconsByName.has(name));
-  if (unknown.length) {
-    console.warn(`⚠️  Not Font Awesome Free ${version} icons, skipped: ${unknown.join(", ")}`);
-  }
-  const classNames = [...used].filter((name) => iconsByName.has(name)).sort(byName);
-
-  // Every family an icon exists in gets the glyph, so `fa-regular fa-star` and
-  // `fa-solid fa-star` both work without tracking which prefix each usage has.
+/**
+ * Glyph names to keep per font family. Every family an icon exists in gets the
+ * glyph, so `fa-regular fa-star` and `fa-solid fa-star` both work without
+ * tracking which prefix each usage has.
+ */
+function groupGlyphsByFamily(classNames, iconsByName) {
   const glyphsByFamily = {};
   for (const className of classNames) {
     const icon = iconsByName.get(className);
-    for (const family of icon.free) {
-      if (!FAMILIES[family]) continue;
+    for (const family of icon.free.filter((f) => FAMILIES[f])) {
       glyphsByFamily[family] ??= new Set();
       glyphsByFamily[family].add(icon.name);
     }
   }
   const families = Object.keys(FAMILIES).filter((f) => glyphsByFamily[f]);
   const subset = Object.fromEntries(families.map((f) => [f, [...glyphsByFamily[f]].sort(byName)]));
+  return { families, subset };
+}
 
-  // Generate into a temp directory and only replace the committed output once
-  // everything succeeded.
+/**
+ * Generate fonts and CSS into a temp directory, then replace the committed
+ * output only once everything succeeded.
+ */
+async function writeSubset(subset, families, css) {
+  const { fontawesomeSubset } = await import("fontawesome-subset");
   const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "fa-subset-"));
   try {
     const ok = await fontawesomeSubset(subset, tmpDir, { package: "free", targetFormats: ["woff2"] });
     if (ok === false) throw new Error("fontawesome-subset reported a failure");
-    for (const f of families) {
-      if (!fs.existsSync(path.join(tmpDir, FAMILIES[f].file))) {
-        throw new Error(`fontawesome-subset did not write ${FAMILIES[f].file}`);
-      }
-    }
-    fs.writeFileSync(path.join(tmpDir, "icons.css"), buildCss(version, families, classNames, iconsByName));
+    const missing = families.find((f) => !fs.existsSync(path.join(tmpDir, FAMILIES[f].file)));
+    if (missing) throw new Error(`fontawesome-subset did not write ${FAMILIES[missing].file}`);
+    fs.writeFileSync(path.join(tmpDir, "icons.css"), css);
 
     fs.rmSync(outDir, { recursive: true, force: true });
     fs.mkdirSync(outDir, { recursive: true });
@@ -160,6 +160,20 @@ async function main() {
   } finally {
     fs.rmSync(tmpDir, { recursive: true, force: true });
   }
+}
+
+async function main() {
+  const { version, icons: iconsByName } = loadIconMetadata();
+  const used = [...findUsedClassNames()];
+
+  const unknown = used.filter((name) => !iconsByName.has(name));
+  if (unknown.length) {
+    console.warn(`⚠️  Not Font Awesome Free ${version} icons, skipped: ${unknown.join(", ")}`);
+  }
+  const classNames = used.filter((name) => iconsByName.has(name)).sort(byName);
+  const { families, subset } = groupGlyphsByFamily(classNames, iconsByName);
+
+  await writeSubset(subset, families, buildCss(version, families, classNames, iconsByName));
 
   const fontBytes = fs
     .readdirSync(outDir)
