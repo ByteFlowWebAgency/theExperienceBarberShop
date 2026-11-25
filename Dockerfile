@@ -18,13 +18,15 @@ RUN npm run build
 # Base image for Runtime Stage
 FROM node:24-alpine AS production
 
-# Working Directory
+# Working Directory, owned by the image's unprivileged "node" user
 WORKDIR /app
+RUN chown node:node /app
+USER node
 
 # Copy only essential files from Builder Stage
-COPY --from=builder /app/package*.json /app/
-COPY --from=builder /app/.next /app/.next
-COPY --from=builder /app/public /app/public
+COPY --from=builder --chown=node:node /app/package*.json /app/
+COPY --from=builder --chown=node:node /app/.next /app/.next
+COPY --from=builder --chown=node:node /app/public /app/public
 
 # Install production dependencies
 RUN npm ci --omit=dev --ignore-scripts
