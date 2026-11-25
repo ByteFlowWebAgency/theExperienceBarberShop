@@ -9,6 +9,8 @@
   gap: 2rem;
 }
 .card {
+  display: flex;
+  flex-direction: column;
   background: var(--surface-muted);
   border-radius: var(--radius);
   overflow: hidden;
@@ -30,6 +32,32 @@
 }
 .card:hover .img {
   transform: scale(1.05);
+}
+.caption {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border-top: 1px solid var(--border-subtle);
+}
+.captionStyle {
+  font-weight: 700;
+  color: var(--dark-heading);
+}
+.captionLink {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.captionLink:hover {
+  color: var(--primary-hover);
 }
 /* ---------------------------- Before / After ----------------------------- */
 .ba {

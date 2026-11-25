@@ -1,5 +1,4 @@
 import React from "react";
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/layout/Header";
@@ -9,15 +8,19 @@ import BarberPole from "@/components/ui/BarberPole";
 import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CtaSection from "@/components/ui/CtaSection";
+import { BUSINESS_NAME, CLIENTS_SERVED } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 import HeroImg from "@public/assets/images/the_experience_shop9.jpeg";
 import ProfileImg from "@public/assets/images/Deshawn.png";
 import styles from "./our-story.module.css";
 
-export const metadata: Metadata = {
-  title: "Our Story | The Experience Barber & Beauty Shop",
+export const metadata = pageMetadata({
+  title: "Our Story: Deshawn Johnson & The Experience in Akron",
   description:
-    "Founded by Deshawn Johnson — barber, mentor, and reentry advocate — The Experience is a cornerstone of the downtown Akron community.",
-};
+    "Learn how barber Deshawn Johnson built The Experience Barber & Beauty Shop into a downtown Akron hub for craftsmanship, youth mentorship, and reentry advocacy.",
+  path: "/our-story/",
+  image: "/assets/images/the_experience_shop9.jpeg",
+});
 
 const values = [
   {
@@ -38,7 +41,7 @@ const values = [
 ];
 
 const stats = [
-  { num: "5k+", label: "Happy Clients" },
+  { num: CLIENTS_SERVED, label: "Happy Clients" },
   { num: "50+", label: "Youth Mentored" },
   { num: "100%", label: "Community Focus" },
 ];
@@ -50,7 +53,7 @@ export default function OurStoryPage() {
 
       <PageHero
         image={HeroImg}
-        alt="Inside The Experience Barber & Beauty Shop in downtown Akron"
+        alt={`Inside ${BUSINESS_NAME} in downtown Akron`}
         badge="Our Story"
         title="More Than Just A Haircut."
         subtitle="The Experience You'll Remember."
@@ -133,6 +136,21 @@ export default function OurStoryPage() {
                 hub. We measure success not just by the number of cuts, but by
                 the lives we touch and the positive change we foster in downtown
                 Akron.
+              </p>
+              <p className={styles.impactText}>
+                See what clients say in our{" "}
+                <Link href="/reviews" className={styles.inlineLink}>
+                  Google reviews
+                </Link>
+                , browse our{" "}
+                <Link href="/services" className={styles.inlineLink}>
+                  barber services and prices
+                </Link>
+                , or learn about{" "}
+                <Link href="/franchise" className={styles.inlineLink}>
+                  owning an Experience franchise
+                </Link>
+                .
               </p>
               <Link href="/visit-us" className={styles.impactLink}>
                 Come visit us in Akron{" "}

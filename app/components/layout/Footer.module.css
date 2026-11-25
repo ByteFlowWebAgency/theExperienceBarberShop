@@ -53,6 +53,9 @@
 }
 
 .colTitle {
+  /* Headings default to --dark-heading (globals.css), which matches the
+     footer background, so set the color explicitly. */
+  color: #fff;
   font-weight: 700;
   font-size: 1.125rem;
   margin-bottom: 1.5rem;
@@ -90,6 +93,12 @@
 .contactItem i {
   color: var(--primary);
   margin-top: 0.2rem;
+}
+.contactLink {
+  transition: color 0.2s ease;
+}
+.contactLink:hover {
+  color: #fff;
 }
 
 .hoursList {

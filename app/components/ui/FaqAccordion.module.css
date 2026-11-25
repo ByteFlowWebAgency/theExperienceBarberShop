@@ -52,3 +52,14 @@
   line-height: 1.6;
   border-top: 1px solid var(--border-subtle);
 }
+.qHeading {
+  margin: 0;
+}
+.aLink {
+  color: var(--primary);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.aLink:hover {
+  color: var(--primary-hover);
+}

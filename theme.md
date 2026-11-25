@@ -38,8 +38,13 @@ Defined as CSS custom properties on `:root`; use `var(--token)`.
 
 ## Icons
 
-[Font Awesome 6](https://fontawesome.com) (free) loaded via CDN `<link>` in the
-root layout; used as `<i className="fa-solid fa-…" />`.
+[Font Awesome 6](https://fontawesome.com) (free), used as
+`<i className="fa-solid fa-…" />`. The site self-hosts a subset containing only
+the icons it uses: [`scripts/icons.mjs`](scripts/icons.mjs) scans `app/` for
+`fa-*` classes and writes `app/styles/icons/` (CSS + subset `.woff2` fonts),
+which the root layout imports. It runs automatically before `npm run dev` and
+`npm run build`; after adding a new icon, run `npm run icons` (or restart dev)
+so it renders.
 
 ## Layout, spacing, shadows
 

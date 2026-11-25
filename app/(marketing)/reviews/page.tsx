@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/layout/Container";
@@ -9,6 +10,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import CtaSection from "@/components/ui/CtaSection";
 import HeroImg from "@public/assets/images/theExperienceBarberShopAndSalon3.jpg";
 import { getReviewsSafe, getRatingSummary } from "@/lib/gbp/reviews";
+import { pageMetadata } from "@/lib/seo";
 import styles from "./reviews.module.css";
 
 // Regenerate hourly so the Google rating stays fresh without rebuilding.
@@ -17,10 +19,11 @@ export const revalidate = 3600;
 export async function generateMetadata(): Promise<Metadata> {
   const { averageRating, totalReviewCount } = await getRatingSummary();
   const rating = (Math.round(averageRating * 10) / 10).toFixed(1);
-  return {
-    title: "Reviews | The Experience Barber & Beauty Shop",
-    description: `See why downtown Akron trusts The Experience for the perfect cut. ${rating}-star rated with ${totalReviewCount}+ five-star reviews.`,
-  };
+  return pageMetadata({
+    title: "The Experience Barber & Beauty Shop Reviews | Akron, OH",
+    description: `Read ${totalReviewCount}+ Google reviews of The Experience Barber & Beauty Shop, rated ${rating} stars. See why downtown Akron clients trust our barbers for clean, precise cuts.`,
+    path: "/reviews/",
+  });
 }
 
 const Stars = ({ rating = 5 }: { rating?: number }) => {
@@ -107,7 +110,8 @@ export default async function ReviewsPage() {
                 </div>
                 <p className={styles.tBody}>{r.comment}</p>
                 <div className={styles.tAuthor}>
-                  {r.reviewer.isAnonymous ? (
+                  {!r.reviewer.isAnonymous && r.reviewer.profilePhotoUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element -- remote Google profile photo
                     <img
                       src={r.reviewer.profilePhotoUrl}
                       alt={r.reviewer.displayName}
@@ -146,6 +150,13 @@ export default async function ReviewsPage() {
               Read more on Google <i className="fa-solid fa-arrow-right" />
             </a>
           </div>
+          <p className={styles.moreText}>
+            Ready for your own cut? Browse our{" "}
+            <Link href="/services">barber services and prices</Link>, see real
+            cuts in the <Link href="/gallery">gallery</Link>, or{" "}
+            <Link href="/visit-us">plan your visit</Link> to our downtown Akron
+            shop.
+          </p>
         </Container>
       </section>
 

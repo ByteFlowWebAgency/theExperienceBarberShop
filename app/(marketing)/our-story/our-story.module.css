@@ -130,6 +130,13 @@
   color: #fff;
   border-color: #fff;
 }
+.inlineLink {
+  color: var(--primary-light);
+  font-weight: 600;
+}
+.inlineLink:hover {
+  color: #fff;
+}
 .statTiles {
   display: grid;
   grid-template-columns: 1fr 1fr;

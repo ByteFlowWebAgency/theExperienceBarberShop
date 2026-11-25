@@ -1,5 +1,5 @@
 import React from "react";
-import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/layout/Container";
@@ -8,24 +8,27 @@ import PageHero from "@/components/ui/PageHero";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CtaSection from "@/components/ui/CtaSection";
 import IFrameMap from "@/components/ui/IFrameMap";
+import JsonLd from "@/components/ui/JsonLd";
 import { Button } from "@/components/ui/Button";
 import {
   BOOKSY_URL,
+  BUSINESS_NAME,
+  DIRECTIONS_URL,
   PHONE_HREF,
   ADDRESS_LINE_1,
   ADDRESS_LINE_2,
 } from "@/lib/site";
+import { businessJsonLd, pageMetadata } from "@/lib/seo";
 import HeroImg from "@public/assets/images/theexperienceshop.webp";
 import styles from "./visit.module.css";
 
-export const metadata: Metadata = {
-  title: "Visit Us | The Experience Barber & Beauty Shop",
+export const metadata = pageMetadata({
+  title: "Hours & Location: Barber Shop at 88 E Mill St, Akron",
   description:
-    "Find The Experience Barber & Beauty Shop at 88 E Mill St, Akron, OH 44308. Hours, parking, walk-in policy, and shop amenities.",
-};
-
-const DIRECTIONS_URL =
-  "https://www.google.com/maps/search/?api=1&query=88+E+Mill+St+Akron+OH+44308";
+    "Find The Experience Barber & Beauty Shop at 88 E Mill St in downtown Akron. Open Tue-Sat 10 AM-6 PM, Mondays by appointment. Parking, walk-ins, and amenities.",
+  path: "/visit-us/",
+  image: "/assets/images/theexperienceshop.webp",
+});
 
 const hours = [
   { day: "Monday", value: "Appointments Only", badge: true },
@@ -65,11 +68,13 @@ const amenities = [
 export default function VisitUsPage() {
   return (
     <>
+      <JsonLd data={businessJsonLd()} />
+
       <Header />
 
       <PageHero
         image={HeroImg}
-        alt="The Experience Barber Shop storefront in downtown Akron"
+        alt={`${BUSINESS_NAME} storefront in downtown Akron`}
         badge="Location & Hours"
         title="Plan Your Visit"
         subtitle="Downtown Akron's premier destination for grooming."
@@ -81,6 +86,18 @@ export default function VisitUsPage() {
       {/* Map + hours */}
       <section className={styles.core}>
         <Container>
+          <SectionHeading
+            title={`Where is ${BUSINESS_NAME}?`}
+            subtitle={
+              <>
+                {BUSINESS_NAME} is at {ADDRESS_LINE_1}, {ADDRESS_LINE_2}, in the
+                heart of downtown Akron. Street parking is available along E
+                Mill St, with public parking decks a short walk away. Walk-ins
+                are welcome Tuesday–Saturday, 10 AM–6 PM; Mondays are by
+                appointment only.
+              </>
+            }
+          />
           <div className={styles.coreGrid}>
             <div className={styles.mapCard}>
               <div className={styles.mapInner}>
@@ -151,7 +168,14 @@ export default function VisitUsPage() {
         <Container>
           <SectionHeading
             title="What to Expect"
-            subtitle="Guidelines to ensure you have the best experience possible."
+            subtitle={
+              <>
+                Guidelines to ensure you have the best experience possible. See
+                our <Link href="/services">barber services and prices</Link>,
+                read <Link href="/reviews">client reviews</Link>, or find{" "}
+                <Link href="/faq">answers to common questions</Link>.
+              </>
+            }
           />
           <div className={styles.guideGrid}>
             {guidelines.map((g) => (

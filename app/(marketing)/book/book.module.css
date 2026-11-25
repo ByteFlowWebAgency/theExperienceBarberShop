@@ -207,3 +207,13 @@
     grid-template-columns: 7fr 5fr;
   }
 }
+
+.stepText a,
+.sideText a {
+  color: var(--primary);
+  font-weight: 600;
+}
+.stepText a:hover,
+.sideText a:hover {
+  color: var(--primary-hover);
+}

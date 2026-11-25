@@ -29,3 +29,14 @@
     font-size: 2.5rem;
   }
 }
+
+.subtitle a {
+  color: var(--primary);
+  font-weight: 600;
+}
+.subtitle a:hover {
+  color: var(--primary-hover);
+}
+.subtitleLight a {
+  color: var(--primary-light);
+}
