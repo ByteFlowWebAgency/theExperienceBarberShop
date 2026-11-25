@@ -35,6 +35,8 @@ and `docs/seo-reaudit-2026-11-25.md`). Audit score: 184/330 → 288/330.
 
 ### Fixed
 
+- Vercel deployments failing since Node.js 20 was discontinued: `engines.node`
+  is now `24.x` (Dockerfile base images updated to `node:24-alpine`)
 - Service page canonicals pointed to a non-www URL two redirects away
 - FAQ answers were missing from the server-rendered HTML
 - Invalid `Barbershop` schema.org type in the homepage JSON-LD

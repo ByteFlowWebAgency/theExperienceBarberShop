@@ -1,5 +1,5 @@
 # Base Image for Build Stage
-FROM node:20-alpine AS base
+FROM node:24-alpine AS base
 WORKDIR /app
 COPY package*.json ./
 
@@ -15,7 +15,7 @@ COPY . .
 RUN npm run build
 
 # Base image for Runtime Stage
-FROM node:20-alpine AS production
+FROM node:24-alpine AS production
 
 # Working Directory
 WORKDIR /app
