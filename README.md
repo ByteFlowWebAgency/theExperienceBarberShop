@@ -1,5 +1,5 @@
 # The Experience Barber & Beauty Shop
-Version: 1.0.2
+Version: 1.2.0
 
 A private Next.js, React, and TypeScript application developed by BYTEFLOW for The Experience Barber & Beauty Shop. This project utilizes Docker for consistent development and deployment environments.
 
@@ -184,7 +184,7 @@ This project follows GitFlow conventions for development and releases. Please re
 - `hotfix/*`: Production fixes
 
 ### Version History
-- v1.0.2 - Current release
+- v1.2.0 - Current release
 
 ## License
 

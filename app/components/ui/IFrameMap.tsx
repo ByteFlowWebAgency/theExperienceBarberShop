@@ -1,5 +1,11 @@
 import React from "react";
+import { ADDRESS_LINE_1, ADDRESS_LINE_2, BUSINESS_NAME } from "@/lib/site";
 import styles from "./IFrameMap.module.css";
+
+// Google Maps embed query: the address plus the business name as the pin label.
+const MAP_SRC = `https://maps.google.com/maps?hl=en&q=${encodeURIComponent(
+  `${ADDRESS_LINE_1}, ${ADDRESS_LINE_2} (${BUSINESS_NAME})`
+)}&t=&z=15&ie=UTF8&iwloc=B&output=embed`;
 
 /** Google Maps embed that fills its (sized) parent container. */
 const IFrameMap = () => {
@@ -9,9 +15,9 @@ const IFrameMap = () => {
       allowFullScreen
       loading="lazy"
       sandbox="allow-scripts"
-      src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=88%20E%20Mill%20St,%20Akron,%20OH%2044308+(The%20Experience%20Barbershop%20&amp;%20Salon)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+      src={MAP_SRC}
       referrerPolicy="no-referrer-when-downgrade"
-      title="The Experience Barbershop & Salon location map"
+      title={`${BUSINESS_NAME} location map`}
     ></iframe>
   );
 };

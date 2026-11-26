@@ -3,6 +3,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const domain = "https://www.theexpshop.com";
+// next.config.js sets trailingSlash: true, so every non-root URL ends in "/".
+// Without it, each sitemap URL would 308-redirect.
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -46,7 +48,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 ${routes
   .map(
     (route) => `  <url>
-    <loc>${domain}${route}</loc>
+    <loc>${domain}${route === "/" ? "/" : `${route}/`}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>${priorityFor(route)}</priority>

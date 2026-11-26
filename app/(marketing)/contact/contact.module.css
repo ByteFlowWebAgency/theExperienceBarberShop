@@ -232,3 +232,11 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.heroLink {
+  color: var(--primary);
+  font-weight: 600;
+}
+.heroLink:hover {
+  color: var(--primary-hover);
+}

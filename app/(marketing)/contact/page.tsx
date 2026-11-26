@@ -1,6 +1,6 @@
 import React from "react";
-import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/layout/Container";
@@ -16,18 +16,20 @@ import {
   EMAIL_HREF,
   ADDRESS_LINE_1,
   ADDRESS_LINE_2,
+  BUSINESS_NAME,
+  DIRECTIONS_URL,
 } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 import HeroImg from "@public/assets/images/theexperienceshop.webp";
 import styles from "./contact.module.css";
 
-export const metadata: Metadata = {
-  title: "Contact | The Experience Barber & Beauty Shop",
+export const metadata = pageMetadata({
+  title: "Contact The Experience Barber & Beauty Shop | Akron, OH",
   description:
-    "Get in touch with The Experience Barber & Beauty Shop in downtown Akron. Call, email, or send us a message.",
-};
-
-const DIRECTIONS_URL =
-  "https://www.google.com/maps/search/?api=1&query=88+E+Mill+St+Akron+OH+44308";
+    "Contact The Experience Barber & Beauty Shop in downtown Akron. Call 330-475-2522, email the shop, or send a message about services, careers, or franchising.",
+  path: "/contact/",
+  image: "/assets/images/theexperienceshop.webp",
+});
 
 export default function ContactPage() {
   return (
@@ -39,7 +41,7 @@ export default function ContactPage() {
         <div className={styles.heroBg}>
           <Image
             src={HeroImg}
-            alt="The Experience Barber Shop interior"
+            alt={`${BUSINESS_NAME} interior`}
             fill
             priority
             sizes="100vw"
@@ -51,9 +53,15 @@ export default function ContactPage() {
           <span className={styles.heroBadge}>Get in Touch</span>
           <h1 className={styles.heroTitle}>We&apos;d love to hear from you.</h1>
           <p className={styles.heroText}>
-            Whether you have a question about our services, want to join our
-            team, or are interested in franchise opportunities, we&apos;re here
-            to help.
+            Whether you have a question about our{" "}
+            <Link href="/services" className={styles.heroLink}>
+              services
+            </Link>
+            , want to join our team, or are interested in{" "}
+            <Link href="/franchise" className={styles.heroLink}>
+              franchise opportunities
+            </Link>
+            , we&apos;re here to help.
           </p>
         </div>
       </section>
@@ -95,7 +103,11 @@ export default function ContactPage() {
                 </div>
                 <h3 className={styles.infoTitle}>Visit Us</h3>
                 <p className={styles.infoText}>
-                  Located in the heart of downtown Akron.
+                  Located in the heart of downtown Akron. See{" "}
+                  <Link href="/visit-us" className={styles.heroLink}>
+                    parking and hours
+                  </Link>
+                  .
                 </p>
                 <address className={styles.infoAddr}>
                   {ADDRESS_LINE_1}
@@ -135,7 +147,9 @@ export default function ContactPage() {
         <Container>
           <div className={styles.hoursGrid}>
             <div>
-              <h2 className={styles.hoursTitle}>Operating Hours</h2>
+              <h2 className={styles.hoursTitle}>
+                Barber Shop Hours in Downtown Akron
+              </h2>
               <div className={styles.hoursBox}>
                 <div className={styles.hoursRow}>
                   <span className={styles.hoursDay}>Monday</span>

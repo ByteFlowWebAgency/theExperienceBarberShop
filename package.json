@@ -1,13 +1,15 @@
 {
   "name": "the-experience-barber-shop",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "engines": {
-    "node": "20.x"
+    "node": "24.x"
   },
   "scripts": {
+    "icons": "node scripts/icons.mjs",
+    "predev": "node scripts/icons.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/sitemap.mjs",
+    "prebuild": "node scripts/icons.mjs && node scripts/sitemap.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint ."
@@ -27,11 +29,13 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "6.4.0",
     "@types/node": "^20.17.6",
     "@types/react": "^19.2.16",
     "@types/react-dom": "^19.2.3",
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.2.7",
+    "fontawesome-subset": "^4.6.0",
     "typescript": "^5.9.3"
   }
 }

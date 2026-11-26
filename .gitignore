@@ -34,6 +34,10 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.env.local
+# Guard against the key file being created without the leading dot
+env.local
+env.*.local
 
 # vercel
 .vercel

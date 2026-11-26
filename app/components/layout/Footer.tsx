@@ -5,10 +5,14 @@ import { Button } from "@/components/ui/Button";
 import Container from "@/components/layout/Container";
 import {
   BOOKSY_URL,
+  BUSINESS_NAME,
   PHONE,
+  PHONE_HREF,
   EMAIL,
+  EMAIL_HREF,
   ADDRESS_LINE_1,
   ADDRESS_LINE_2,
+  FACEBOOK_URL,
 } from "@/lib/site";
 import Logo from "@public/assets/images/TheExperienceBarberShopAndSalonLogo.png";
 import styles from "./Footer.module.css";
@@ -16,8 +20,13 @@ import styles from "./Footer.module.css";
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services & Pricing", href: "/services" },
-  { label: "Our Story", href: "/our-story" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Our Story", href: "/our-story" },
+  { label: "Visit Us", href: "/visit-us" },
+  { label: "Reviews", href: "/reviews" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contact", href: "/contact" },
+  { label: "Franchise", href: "/franchise" },
 ];
 
 const Footer: React.FC = () => {
@@ -30,7 +39,7 @@ const Footer: React.FC = () => {
             <Link href="/" className={styles.brandLogo}>
               <Image
                 src={Logo}
-                alt="The Experience Barber & Beauty Shop"
+                alt={BUSINESS_NAME}
                 className={styles.logoImg}
               />
             </Link>
@@ -38,16 +47,24 @@ const Footer: React.FC = () => {
               Downtown Akron&apos;s premier destination for grooming, styling,
               and community connection.
             </p>
-            <div className={styles.socials}>
-              <a href="#" className={styles.social} aria-label="Facebook">
-                <i className="fa-brands fa-facebook-f" />
-              </a>
-            </div>
+            {FACEBOOK_URL && (
+              <div className={styles.socials}>
+                <a
+                  href={FACEBOOK_URL}
+                  className={styles.social}
+                  aria-label="Facebook"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <i className="fa-brands fa-facebook-f" />
+                </a>
+              </div>
+            )}
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className={styles.colTitle}>Quick Links</h4>
+            <h2 className={styles.colTitle}>Quick Links</h2>
             <ul className={styles.links}>
               {QUICK_LINKS.map((link) => (
                 <li key={link.href}>
@@ -61,7 +78,7 @@ const Footer: React.FC = () => {
 
           {/* Contact */}
           <div>
-            <h4 className={styles.colTitle}>Contact Us</h4>
+            <h2 className={styles.colTitle}>Contact Us</h2>
             <ul className={styles.contactList}>
               <li className={styles.contactItem}>
                 <i className="fa-solid fa-location-dot" />
@@ -73,18 +90,22 @@ const Footer: React.FC = () => {
               </li>
               <li className={styles.contactItem}>
                 <i className="fa-solid fa-phone" />
-                <span>{PHONE}</span>
+                <a href={PHONE_HREF} className={styles.contactLink}>
+                  {PHONE}
+                </a>
               </li>
               <li className={styles.contactItem}>
                 <i className="fa-solid fa-envelope" />
-                <span>{EMAIL}</span>
+                <a href={EMAIL_HREF} className={styles.contactLink}>
+                  {EMAIL}
+                </a>
               </li>
             </ul>
           </div>
 
           {/* Hours */}
           <div>
-            <h4 className={styles.colTitle}>Hours</h4>
+            <h2 className={styles.colTitle}>Hours</h2>
             <ul className={styles.hoursList}>
               <li className={styles.hoursRow}>
                 <span className={styles.hoursDay}>Monday</span>
@@ -107,8 +128,8 @@ const Footer: React.FC = () => {
 
         <div className={styles.bottom}>
           <p className={styles.copyright}>
-            © {new Date().getFullYear()} The Experience Barber &amp; Beauty
-            Shop. All rights reserved. Created by{" "}
+            © {new Date().getFullYear()} {BUSINESS_NAME}. All rights
+            reserved. Created by{" "}
             <a href="https://www.byteflow.us" target="_blank">
               BYTEFLOW
             </a>

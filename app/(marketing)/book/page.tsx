@@ -1,24 +1,31 @@
 import React from "react";
-import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/layout/Container";
 import BarberPole from "@/components/ui/BarberPole";
 import { Button } from "@/components/ui/Button";
 import { BOOKSY_URL, PHONE, PHONE_HREF } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 import styles from "./book.module.css";
 
-export const metadata: Metadata = {
-  title: "Book an Appointment | The Experience Barber & Beauty Shop",
+export const metadata = pageMetadata({
+  title: "Book a Barber Appointment in Akron, OH | The Experience",
   description:
-    "Book your appointment at The Experience Barber & Beauty Shop in downtown Akron through Booksy, or call the shop to schedule.",
-};
+    "Book a haircut, beard trim, or shave at The Experience Barber & Beauty Shop in downtown Akron. Schedule online through Booksy or call 330-475-2522 to reserve.",
+  path: "/book/",
+});
 
 const steps = [
   {
     n: 1,
     label: "Select Services:",
-    text: "Choose your desired haircut, shave, or styling options.",
+    text: (
+      <>
+        Choose your desired haircut, shave, or styling options from our{" "}
+        <Link href="/services">services and prices</Link>.
+      </>
+    ),
   },
   {
     n: 2,
@@ -50,13 +57,16 @@ export default function BookPage() {
               </div>
               <h1 className={styles.cardTitle}>Book Your Experience</h1>
               <p className={styles.cardText}>
-                We use Booksy for the most seamless scheduling experience. You
-                will be redirected to our official booking portal to choose your
-                service and time.
+                Book your haircut, beard trim, or shave at our downtown Akron
+                barber shop. We use Booksy for the most seamless scheduling
+                experience. You will be redirected to our official booking
+                portal to choose your service and time.
               </p>
 
               <div className={styles.steps}>
-                <h3 className={styles.stepsTitle}>What to Expect:</h3>
+                <h2 className={styles.stepsTitle}>
+                  How do I book a barber appointment?
+                </h2>
                 <div className={styles.stepsList}>
                   {steps.map((s) => (
                     <div key={s.n} className={styles.step}>
@@ -85,7 +95,8 @@ export default function BookPage() {
                 <h2 className={styles.sideTitle}>Prefer to Call?</h2>
                 <p className={styles.sideText}>
                   Our team is happy to help you schedule over the phone or answer
-                  any questions about our services.
+                  any questions about our services. You can also check our{" "}
+                  <Link href="/faq">frequently asked questions</Link>.
                 </p>
                 <div className={styles.sidePhone}>
                   <div className={styles.sidePhoneIcon}>
@@ -107,7 +118,8 @@ export default function BookPage() {
                 <h3 className={styles.sideHeading}>Walk-in Policy</h3>
                 <p className={styles.sideText} style={{ borderBottom: "none", paddingBottom: 0 }}>
                   We gladly accept walk-ins during our regular operating hours,
-                  subject to barber availability.
+                  subject to barber availability. See{" "}
+                  <Link href="/visit-us">hours, parking, and directions</Link>.
                 </p>
                 <div className={styles.walkBox}>
                   <div className={styles.walkRow}>

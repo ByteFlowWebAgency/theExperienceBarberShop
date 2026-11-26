@@ -1,6 +1,6 @@
 import React from "react";
-import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Container from "@/components/layout/Container";
@@ -8,18 +8,22 @@ import BarberPole from "@/components/ui/BarberPole";
 import SectionHeading from "@/components/ui/SectionHeading";
 import FranchiseForm from "@/components/forms/FranchiseForm";
 import { Button } from "@/components/ui/Button";
+import { BUSINESS_NAME, CLIENTS_SERVED } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 import OwnerImg from "@public/assets/images/DeShawnJohnson.jpg";
 import ShopImg from "@public/assets/images/theexperienceshop.webp";
 import styles from "./franchise.module.css";
 
-export const metadata: Metadata = {
-  title: "Franchise with The Experience Barber Shop | Own Your Business",
+export const metadata = pageMetadata({
+  title: "Barber Shop Franchise Opportunity | The Experience",
   description:
-    "Join The Experience Barber Shop as a franchisee. Learn about our proven model, comprehensive training, and franchise opportunities.",
-};
+    "Learn how to open a franchise with The Experience Barber & Beauty Shop: a proven barbershop model, hands-on training, and marketing support. Request info.",
+  path: "/franchise/",
+  image: "/assets/images/theexperienceshop.webp",
+});
 
 const stats = [
-  { num: "50k+", label: "Happy Clients" },
+  { num: CLIENTS_SERVED, label: "Happy Clients" },
   { num: "3", label: "Revenue Streams" },
   { num: "100%", label: "Support" },
 ];
@@ -40,6 +44,14 @@ const features = [
     title: "Marketing Engine",
     text: "Leverage our established brand, digital marketing strategies, and local outreach to drive foot traffic from day one.",
   },
+];
+
+const steps = [
+  "Request our franchise information packet using the form below.",
+  "Talk with our team about your goals and your market.",
+  "Choose your site and complete the build-out with our step-by-step playbook.",
+  "Recruit your barbers and train them in our signature service approach.",
+  "Open with our brand, digital marketing, and local outreach behind you.",
 ];
 
 export default function FranchisePage() {
@@ -101,7 +113,7 @@ export default function FranchisePage() {
       <section id="model" className={styles.model}>
         <Container>
           <SectionHeading
-            title="A blueprint for success."
+            title="A Proven Barbershop Franchise Model"
             subtitle="We've refined the modern barbershop experience. Our model maximizes efficiency, client retention, and profitability without sacrificing the authentic community feel."
           />
           <div className={styles.modelGrid}>
@@ -120,10 +132,44 @@ export default function FranchisePage() {
             </div>
             <Image
               src={ShopImg}
-              alt="The Experience shop"
+              alt={`${BUSINESS_NAME} storefront in downtown Akron`}
               className={styles.modelImage}
               sizes="(max-width: 768px) 100vw, 50vw"
             />
+          </div>
+        </Container>
+      </section>
+
+      {/* How to open a franchise */}
+      <section className={styles.howTo}>
+        <Container>
+          <div className={styles.howToInner}>
+            <h2 className={styles.howToTitle}>
+              How do you open a barbershop franchise with The Experience?
+            </h2>
+            <p className={styles.howToText}>
+              Opening a franchise with {BUSINESS_NAME} starts with an inquiry.
+              Request
+              our franchise information packet, talk with our team about your
+              market, then work through our playbook covering site selection,
+              build-out, barber recruiting, training, and marketing, all the way
+              to your grand opening.
+            </p>
+            <ol className={styles.howToSteps}>
+              {steps.map((step, i) => (
+                <li key={step} className={styles.howToStep}>
+                  <span className={styles.howToNum}>{i + 1}</span>
+                  <span>{step}</span>
+                </li>
+              ))}
+            </ol>
+            <p className={styles.howToText}>
+              Want to know more about the brand first? Read{" "}
+              <Link href="/our-story">our founder&apos;s story</Link> and see
+              what clients say in our{" "}
+              <Link href="/reviews">Google reviews</Link>, or browse our{" "}
+              <Link href="/services">services and prices</Link>.
+            </p>
           </div>
         </Container>
       </section>
